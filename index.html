@@ -81,8 +81,8 @@
                     <input type="text" oninput="handleSearch(event)" placeholder="Search products..." class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
                 </div>
 
-                <!-- Profile Icon (Triggers Dashboard Modal) -->
-                <button onclick="toggleDashboardModal()" class="w-10 h-10 rounded-full bg-cardBg border border-borderCol flex items-center justify-center text-gray-300 hover:text-neon hover:border-neon transition-all shadow-sm">
+                <!-- Profile Icon (Triggers Auth or Dashboard Modal) -->
+                <button onclick="handleProfileClick()" class="w-10 h-10 rounded-full bg-cardBg border border-borderCol flex items-center justify-center text-gray-300 hover:text-neon hover:border-neon transition-all shadow-sm">
                     <i class="fa-regular fa-user text-lg"></i>
                 </button>
 
@@ -117,9 +117,8 @@
         
         <!-- HOME VIEW (Hero, Category Quick Icons, Popular Products Grid) -->
         <div id="homeView">
-            <!-- Hero Banner Section matching reference image -->
+            <!-- Hero Banner Section -->
             <section class="relative bg-gradient-to-r from-[#0d1512] to-[#080c0a] border border-borderCol rounded-3xl p-6 sm:p-12 overflow-hidden shadow-2xl">
-                <!-- Background glow effects -->
                 <div class="absolute -right-20 -top-20 w-96 h-96 bg-neon/10 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -138,7 +137,6 @@
                             Your One-Stop Destination for Digital Products, Services & More.
                         </p>
 
-                        <!-- Features Highlights -->
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
                             <div class="flex flex-col space-y-1">
                                 <i class="fa-solid fa-bolt text-neon text-lg"></i>
@@ -162,7 +160,6 @@
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
                         <div class="flex flex-wrap gap-4 pt-4">
                             <button onclick="switchView('shop')" class="bg-neon text-black font-black text-xs px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(0,255,102,0.4)] hover:bg-emerald-400 transition-all flex items-center space-x-2">
                                 <span>VISIT SHOP</span>
@@ -175,18 +172,12 @@
                         </div>
                     </div>
 
-                    <!-- Hero Graphic / Illustration -->
                     <div class="lg:col-span-5 flex justify-center relative">
                         <div class="relative w-full max-w-sm h-72 sm:h-80 bg-gradient-to-tr from-emerald-950/40 to-black border border-borderCol rounded-3xl p-6 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden group">
                             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,102,0.1)_0,transparent_70%)]"></div>
                             <i class="fa-solid fa-user-secret text-7xl text-neon mb-4 drop-shadow-[0_0_20px_rgba(0,255,102,0.5)]"></i>
                             <h3 class="text-lg font-black text-white">BIGGER, FASTER, BETTER</h3>
                             <p class="text-xs text-gray-400 mt-1">Elite Digital Toolkits & Panels</p>
-                            <div class="mt-6 flex space-x-2">
-                                <span class="w-3 h-3 rounded-full bg-neon shadow-[0_0_8px_#00ff66]"></span>
-                                <span class="w-3 h-3 rounded-full bg-borderCol"></span>
-                                <span class="w-3 h-3 rounded-full bg-borderCol"></span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -242,7 +233,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- Popular Product 1 -->
-                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                    <div onclick="openProductDetail('Instagram Followers Panel', 50, 'Instagram', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(124 reviews)')" class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                 <i class="fa-brands fa-instagram"></i>
@@ -254,14 +245,14 @@
                                 <span class="text-gray-400 text-[11px] ml-1">(124 reviews)</span>
                             </div>
                         </div>
-                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <button onclick="event.stopPropagation(); openProductDetail('Instagram Followers Panel', 50, 'Instagram', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(124 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-bolt"></i>
                             <span>Buy Now</span>
                         </button>
                     </div>
 
                     <!-- Popular Product 2 -->
-                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                    <div onclick="openProductDetail('Instagram Account Unban Forms', 60, 'Instagram', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(87 reviews)')" class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                 <i class="fa-brands fa-instagram"></i>
@@ -273,14 +264,14 @@
                                 <span class="text-gray-400 text-[11px] ml-1">(87 reviews)</span>
                             </div>
                         </div>
-                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <button onclick="event.stopPropagation(); openProductDetail('Instagram Account Unban Forms', 60, 'Instagram', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(87 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-bolt"></i>
                             <span>Buy Now</span>
                         </button>
                     </div>
 
                     <!-- Popular Product 3 -->
-                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                    <div onclick="openProductDetail('Gaming Related Services', 40, 'Gaming', 'fa-solid fa-gamepad', 'bg-emerald-600', '(62 reviews)')" class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                 <i class="fa-solid fa-gamepad"></i>
@@ -292,14 +283,14 @@
                                 <span class="text-gray-400 text-[11px] ml-1">(62 reviews)</span>
                             </div>
                         </div>
-                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <button onclick="event.stopPropagation(); openProductDetail('Gaming Related Services', 40, 'Gaming', 'fa-solid fa-gamepad', 'bg-emerald-600', '(62 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-bolt"></i>
                             <span>Buy Now</span>
                         </button>
                     </div>
 
                     <!-- Popular Product 4 -->
-                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                    <div onclick="openProductDetail('YouTube Services', 70, 'Social Media', 'fa-brands fa-youtube', 'bg-red-600', '(95 reviews)')" class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                 <i class="fa-brands fa-youtube"></i>
@@ -311,14 +302,14 @@
                                 <span class="text-gray-400 text-[11px] ml-1">(95 reviews)</span>
                             </div>
                         </div>
-                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <button onclick="event.stopPropagation(); openProductDetail('YouTube Services', 70, 'Social Media', 'fa-brands fa-youtube', 'bg-red-600', '(95 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-bolt"></i>
                             <span>Buy Now</span>
                         </button>
                     </div>
 
                     <!-- Popular Product 5 -->
-                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                    <div onclick="openProductDetail('Telegram Services', 30, 'Social Media', 'fa-brands fa-telegram', 'bg-sky-500', '(48 reviews)')" class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                 <i class="fa-brands fa-telegram"></i>
@@ -330,14 +321,14 @@
                                 <span class="text-gray-400 text-[11px] ml-1">(48 reviews)</span>
                             </div>
                         </div>
-                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <button onclick="event.stopPropagation(); openProductDetail('Telegram Services', 30, 'Social Media', 'fa-brands fa-telegram', 'bg-sky-500', '(48 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-bolt"></i>
                             <span>Buy Now</span>
                         </button>
                     </div>
 
                     <!-- Popular Product 6 -->
-                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                    <div onclick="openProductDetail('Custom Digital Services', 100, 'Custom', 'fa-solid fa-gears', 'bg-[#050807] border border-borderCol text-neon', '(36 reviews)')" class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer">
                         <div>
                             <div class="w-12 h-12 rounded-xl bg-[#050807] border border-borderCol flex items-center justify-center text-neon text-xl mb-4 shadow-md">
                                 <i class="fa-solid fa-gears"></i>
@@ -349,8 +340,8 @@
                                 <span class="text-gray-400 text-[11px] ml-1">(36 reviews)</span>
                             </div>
                         </div>
-                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <button onclick="event.stopPropagation(); openProductDetail('Custom Digital Services', 100, 'Custom', 'fa-solid fa-gears', 'bg-[#050807] border border-borderCol text-neon', '(36 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-bolt"></i>
                             <span>Buy Now</span>
                         </button>
                     </div>
@@ -361,11 +352,10 @@
 
         <!-- SHOP & CATEGORIES VIEW -->
         <section id="shopView" class="hidden">
-            <!-- Shop Title Header -->
             <div class="mb-8 flex items-center justify-between">
                 <div>
                     <h2 class="text-3xl font-black text-white">Our Shop & Categories</h2>
-                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Select products and add them directly to your cart.</p>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Select products to view details and make your purchase.</p>
                 </div>
                 <button onclick="switchView('home')" class="bg-cardBg border border-borderCol text-xs px-4 py-2 rounded-xl text-gray-300 hover:text-neon transition-all flex items-center space-x-2">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -400,9 +390,8 @@
                     </button>
                 </div>
 
-                <!-- Right Content Area (Search, Sort & Products Grid) -->
+                <!-- Right Content Area -->
                 <div class="lg:col-span-3 space-y-6">
-                    <!-- Search & Sort Controls Bar -->
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-cardBg border border-borderCol rounded-2xl p-4">
                         <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-2.5 w-full sm:w-72 focus-within:border-neon transition-all">
                             <i class="fa-solid fa-magnifying-glass text-gray-400 text-xs mr-3"></i>
@@ -422,7 +411,7 @@
                     <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         
                         <!-- Product Card 1 -->
-                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Instagram" data-name="Instagram Followers Panel">
+                        <div onclick="openProductDetail('Instagram Followers Panel', 50, 'Instagram Services', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(124 reviews)')" class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer" data-category="Instagram" data-name="Instagram Followers Panel">
                             <div>
                                 <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                     <i class="fa-brands fa-instagram"></i>
@@ -430,13 +419,14 @@
                                 <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Instagram Followers Panel</h4>
                                 <div class="text-2xl font-black text-white mt-3">₹50</div>
                             </div>
-                            <button onclick="addToCart('Instagram Followers Panel', 50)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                                <span>Add to Cart</span>
+                            <button onclick="event.stopPropagation(); openProductDetail('Instagram Followers Panel', 50, 'Instagram Services', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(124 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Buy Now</span>
                             </button>
                         </div>
 
                         <!-- Product Card 2 -->
-                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Instagram" data-name="Instagram Account Unban Forms">
+                        <div onclick="openProductDetail('Instagram Account Unban Forms', 60, 'Instagram Services', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(87 reviews)')" class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer" data-category="Instagram" data-name="Instagram Account Unban Forms">
                             <div>
                                 <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                     <i class="fa-brands fa-instagram"></i>
@@ -444,13 +434,14 @@
                                 <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Instagram Account Unban Forms</h4>
                                 <div class="text-2xl font-black text-white mt-3">₹60</div>
                             </div>
-                            <button onclick="addToCart('Instagram Account Unban Forms', 60)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                                <span>Add to Cart</span>
+                            <button onclick="event.stopPropagation(); openProductDetail('Instagram Account Unban Forms', 60, 'Instagram Services', 'fa-brands fa-instagram', 'from-purple-600 to-pink-600', '(87 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Buy Now</span>
                             </button>
                         </div>
 
                         <!-- Product Card 3 -->
-                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Gaming" data-name="Gaming Related Services">
+                        <div onclick="openProductDetail('Gaming Related Services', 40, 'Gaming Services', 'fa-solid fa-gamepad', 'bg-emerald-600', '(62 reviews)')" class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer" data-category="Gaming" data-name="Gaming Related Services">
                             <div>
                                 <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                     <i class="fa-solid fa-gamepad"></i>
@@ -458,13 +449,14 @@
                                 <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Gaming Related Services</h4>
                                 <div class="text-2xl font-black text-white mt-3">₹40</div>
                             </div>
-                            <button onclick="addToCart('Gaming Related Services', 40)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                                <span>Add to Cart</span>
+                            <button onclick="event.stopPropagation(); openProductDetail('Gaming Related Services', 40, 'Gaming Services', 'fa-solid fa-gamepad', 'bg-emerald-600', '(62 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Buy Now</span>
                             </button>
                         </div>
 
                         <!-- Product Card 4 -->
-                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Custom" data-name="Custom Digital Services">
+                        <div onclick="openProductDetail('Custom Digital Services', 100, 'Custom Services', 'fa-solid fa-gears', 'bg-[#050807] border border-borderCol text-neon', '(36 reviews)')" class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer" data-category="Custom" data-name="Custom Digital Services">
                             <div>
                                 <div class="w-12 h-12 rounded-xl bg-[#050807] border border-borderCol flex items-center justify-center text-neon text-xl mb-4 shadow-md">
                                     <i class="fa-solid fa-gears"></i>
@@ -472,13 +464,14 @@
                                 <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Custom Digital Services</h4>
                                 <div class="text-2xl font-black text-neon mt-3">₹100+</div>
                             </div>
-                            <button onclick="addToCart('Custom Digital Services', 100)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                                <span>Add to Cart</span>
+                            <button onclick="event.stopPropagation(); openProductDetail('Custom Digital Services', 100, 'Custom Services', 'fa-solid fa-gears', 'bg-[#050807] border border-borderCol text-neon', '(36 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Buy Now</span>
                             </button>
                         </div>
 
                         <!-- Product Card 5 -->
-                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Social Media" data-name="YouTube Services">
+                        <div onclick="openProductDetail('YouTube Services', 70, 'Social Media Services', 'fa-brands fa-youtube', 'bg-red-600', '(95 reviews)')" class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer" data-category="Social Media" data-name="YouTube Services">
                             <div>
                                 <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                     <i class="fa-brands fa-youtube"></i>
@@ -486,13 +479,14 @@
                                 <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">YouTube Services</h4>
                                 <div class="text-2xl font-black text-white mt-3">₹70</div>
                             </div>
-                            <button onclick="addToCart('YouTube Services', 70)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                                <span>Add to Cart</span>
+                            <button onclick="event.stopPropagation(); openProductDetail('YouTube Services', 70, 'Social Media Services', 'fa-brands fa-youtube', 'bg-red-600', '(95 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Buy Now</span>
                             </button>
                         </div>
 
                         <!-- Product Card 6 -->
-                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Social Media" data-name="Telegram Services">
+                        <div onclick="openProductDetail('Telegram Services', 30, 'Social Media Services', 'fa-brands fa-telegram', 'bg-sky-500', '(48 reviews)')" class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group cursor-pointer" data-category="Social Media" data-name="Telegram Services">
                             <div>
                                 <div class="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white text-xl mb-4 shadow-md">
                                     <i class="fa-brands fa-telegram"></i>
@@ -500,8 +494,9 @@
                                 <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Telegram Services</h4>
                                 <div class="text-2xl font-black text-white mt-3">₹30</div>
                             </div>
-                            <button onclick="addToCart('Telegram Services', 30)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
-                                <span>Add to Cart</span>
+                            <button onclick="event.stopPropagation(); openProductDetail('Telegram Services', 30, 'Social Media Services', 'fa-brands fa-telegram', 'bg-sky-500', '(48 reviews)')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Buy Now</span>
                             </button>
                         </div>
 
@@ -510,15 +505,136 @@
             </div>
         </section>
 
+        <!-- PRODUCT DETAIL VIEW MATCHING REFERENCE SCREENSHOT -->
+        <section id="productDetailView" class="hidden space-y-6">
+            <!-- Breadcrumbs -->
+            <div class="flex items-center space-x-2 text-xs text-gray-400">
+                <span onclick="switchView('home')" class="cursor-pointer hover:text-neon">Home</span>
+                <span>></span>
+                <span onclick="switchView('shop')" class="cursor-pointer hover:text-neon">Shop</span>
+                <span>></span>
+                <span id="breadcrumbName" class="text-white font-bold">Product Name</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Left: Product Image / Banner & Thumbnails -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="relative bg-gradient-to-tr from-emerald-950/60 to-[#0d1512] border border-borderCol rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden min-h-[350px]">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,102,0.1)_0,transparent_70%)]"></div>
+                        <div id="detailBigIconBg" class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-4xl mb-6 shadow-2xl relative z-10">
+                            <i id="detailBigIcon" class="fa-brands fa-instagram"></i>
+                        </div>
+                        <h3 id="detailBannerTitle" class="text-xl sm:text-2xl font-black text-white tracking-wide relative z-10">INSTAGRAM SERVICES</h3>
+                        <div class="mt-4 inline-flex items-center space-x-3 bg-[#050807]/80 border border-neon/30 px-4 py-2 rounded-xl text-neon text-xs font-bold relative z-10">
+                            <span>FAST</span>
+                            <span>•</span>
+                            <span>SAFE</span>
+                            <span>•</span>
+                            <span>REAL</span>
+                        </div>
+                    </div>
+
+                    <!-- Small Thumbnails Row -->
+                    <div class="flex space-x-3">
+                        <div class="w-16 h-16 rounded-xl bg-cardBg border border-neon flex items-center justify-center text-neon cursor-pointer">
+                            <i id="thumbIcon1" class="fa-brands fa-instagram text-lg"></i>
+                        </div>
+                        <div class="w-16 h-16 rounded-xl bg-cardBg border border-borderCol hover:border-neon flex items-center justify-center text-gray-400 cursor-pointer">
+                            <i id="thumbIcon2" class="fa-solid fa-shield-halved text-lg"></i>
+                        </div>
+                        <div class="w-16 h-16 rounded-xl bg-cardBg border border-borderCol hover:border-neon flex items-center justify-center text-gray-400 cursor-pointer">
+                            <i id="thumbIcon3" class="fa-solid fa-bolt text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Product Details, Price, Buttons -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="bg-cardBg border border-borderCol rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+                        <div>
+                            <h2 id="detailTitle" class="text-2xl sm:text-3xl font-black text-white">Instagram Followers Panel</h2>
+                            <div id="detailPrice" class="text-3xl font-black text-neon mt-3">₹50</div>
+                            <div class="flex items-center space-x-2 mt-3 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span id="detailReviews" class="text-gray-400 text-xs ml-1">(124 reviews)</span>
+                            </div>
+                        </div>
+
+                        <p id="detailDescription" class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                            Get real and active digital services with our trusted panel. Instant delivery, 100% safe and secure. Boost your online presence today!
+                        </p>
+
+                        <!-- Feature Checks -->
+                        <div class="space-y-2 pt-2 border-t border-borderCol">
+                            <div class="flex items-center space-x-3 text-xs text-gray-300"><i class="fa-solid fa-circle-check text-neon"></i><span>Instant Delivery</span></div>
+                            <div class="flex items-center space-x-3 text-xs text-gray-300"><i class="fa-solid fa-circle-check text-neon"></i><span>Real & Active Users</span></div>
+                            <div class="flex items-center space-x-3 text-xs text-gray-300"><i class="fa-solid fa-circle-check text-neon"></i><span>100% Safe & Secure</span></div>
+                            <div class="flex items-center space-x-3 text-xs text-gray-300"><i class="fa-solid fa-circle-check text-neon"></i><span>24/7 Support</span></div>
+                        </div>
+
+                        <!-- Quantity Selector and Action Buttons matching reference -->
+                        <div class="space-y-4 pt-4 border-t border-borderCol">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-xs text-gray-400 font-bold">Quantity:</span>
+                                <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-3 py-1.5 space-x-4">
+                                    <button onclick="decrementQty()" class="text-gray-400 hover:text-neon text-sm font-bold">-</button>
+                                    <span id="productQty" class="text-xs font-bold text-white">1</span>
+                                    <button onclick="incrementQty()" class="text-gray-400 hover:text-neon text-sm font-bold">+</button>
+                                </div>
+                            </div>
+
+                            <button onclick="addToCartFromDetail()" class="w-full bg-neon text-black font-black text-xs py-4 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(0,255,102,0.3)]">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>Add to Cart</span>
+                            </button>
+
+                            <button onclick="openBuyNowModalFromDetail()" class="w-full bg-[#050807] border border-borderCol text-white font-black text-xs py-4 rounded-xl hover:border-neon transition-all flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-bolt text-neon"></i>
+                                <span>Buy Now</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Grid: Product Metadata & Customer Reviews -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <!-- Product Details Box -->
+                <div class="bg-cardBg border border-borderCol rounded-2xl p-6 space-y-4 shadow-lg">
+                    <h4 class="text-sm font-bold text-white">Product Details</h4>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between pb-2 border-b border-borderCol"><span class="text-gray-400">Category:</span><span id="metaCategory" class="text-white font-medium">Instagram Services</span></div>
+                        <div class="flex justify-between pb-2 border-b border-borderCol"><span class="text-gray-400">Delivery Time:</span><span class="text-white font-medium">Instant</span></div>
+                        <div class="flex justify-between"><span class="text-gray-400">Availability:</span><span class="text-neon font-medium">In Stock</span></div>
+                    </div>
+                </div>
+
+                <!-- Customer Reviews Box -->
+                <div class="bg-cardBg border border-borderCol rounded-2xl p-6 space-y-4 shadow-lg">
+                    <h4 class="text-sm font-bold text-white">Customer Reviews</h4>
+                    <div class="space-y-3" id="detailReviewContainer">
+                        <div class="bg-[#050807] border border-borderCol p-3 rounded-xl space-y-1">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-white">Ayaan_07</span>
+                                <div class="text-amber-400 text-[10px]">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-gray-300">Got my service in just 5 minutes! Really trusted service. 100% recommended.</p>
+                            <span class="text-[9px] text-gray-500">12 Aug 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- NEW ABOUT US & CONTACT US SECTION MATCHING REFERENCE IMAGE -->
+    <!-- ABOUT US & CONTACT US SECTION -->
     <footer id="about" class="border-t border-borderCol bg-[#050807] py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            <!-- About Us Box (Left Side - Spans 7 cols) -->
             <div class="lg:col-span-7 bg-cardBg border border-borderCol rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden shadow-2xl">
-                <!-- Background ambient glow -->
                 <div class="absolute right-0 top-0 w-72 h-72 bg-neon/5 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div>
@@ -530,7 +646,6 @@
                     </p>
                 </div>
 
-                <!-- Stats Footer Inside About Card -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 mt-8 border-t border-borderCol items-center">
                     <div class="flex items-center space-x-3">
                         <i class="fa-solid fa-heart text-neon text-lg"></i>
@@ -561,25 +676,14 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Branding Watermark / Graphic on the Right of About Box -->
-                <div class="hidden xl:flex flex-col items-center justify-center absolute right-8 bottom-8 text-center pointer-events-none opacity-20">
-                    <i class="fa-solid fa-crown text-5xl text-neon mb-2"></i>
-                    <span class="text-sm font-black tracking-widest text-white">ORO DIGITAL SHOP</span>
-                    <span class="text-[10px] italic text-neon mt-1">Thank you for being a part of our journey ♡</span>
-                </div>
             </div>
 
-            <!-- Contact Us Box (Right Side - Spans 5 cols) -->
             <div id="contact" class="lg:col-span-5 bg-cardBg border border-borderCol rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-2xl">
                 <div>
                     <h2 class="text-xl sm:text-2xl font-black text-white tracking-wide">Contact Us</h2>
                     <p class="text-xs sm:text-sm text-gray-400 mt-2 font-medium">Have a question? We are here to help. Reach out to us anytime!</p>
                     
-                    <!-- Contact Information List Container -->
                     <div class="mt-6 bg-[#050807] border border-borderCol rounded-2xl p-4 sm:p-5 space-y-4">
-                        
-                        <!-- Telegram Row -->
                         <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
                             <div class="text-neon mt-0.5"><i class="fa-brands fa-telegram text-base"></i></div>
                             <div>
@@ -588,7 +692,6 @@
                             </div>
                         </div>
 
-                        <!-- Instagram Row (Updated to realwritzz) -->
                         <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
                             <div class="text-neon mt-0.5"><i class="fa-brands fa-instagram text-base"></i></div>
                             <div>
@@ -597,7 +700,6 @@
                             </div>
                         </div>
 
-                        <!-- Email Row -->
                         <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
                             <div class="text-neon mt-0.5"><i class="fa-regular fa-envelope text-base"></i></div>
                             <div>
@@ -606,7 +708,6 @@
                             </div>
                         </div>
 
-                        <!-- WhatsApp Row -->
                         <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
                             <div class="text-neon mt-0.5"><i class="fa-brands fa-whatsapp text-base"></i></div>
                             <div>
@@ -615,7 +716,6 @@
                             </div>
                         </div>
 
-                        <!-- Response Time Row -->
                         <div class="flex items-start space-x-3">
                             <div class="text-neon mt-0.5"><i class="fa-regular fa-clock text-base"></i></div>
                             <div>
@@ -623,7 +723,6 @@
                                 <div class="text-xs font-bold text-white mt-0.5">24/7 (Usually within minutes)</div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -634,6 +733,175 @@
 
         </div>
     </footer>
+
+    <!-- FIREBASE LOGIN MODAL (Matched to Design Reference) -->
+    <div id="loginModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="relative w-full max-w-md bg-[#0d1512] border border-borderCol rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <button onclick="toggleLoginModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#050807] border border-borderCol text-gray-400 hover:text-neon hover:border-neon flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+
+            <div class="text-center space-y-1">
+                <h3 class="text-2xl font-black text-white">Login</h3>
+                <p class="text-xs text-gray-400">Welcome back! Please login to your account.</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleEmailLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1.5">Email Address</label>
+                    <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-3 focus-within:border-neon">
+                        <i class="fa-regular fa-envelope text-gray-400 text-xs mr-3"></i>
+                        <input type="email" id="loginEmail" required placeholder="Enter your email" class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1.5">Password</label>
+                    <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-3 focus-within:border-neon">
+                        <i class="fa-solid fa-lock text-gray-400 text-xs mr-3"></i>
+                        <input type="password" id="loginPassword" required placeholder="••••••••" class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs">
+                    <label class="flex items-center space-x-2 text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="rounded bg-[#050807] border-borderCol text-neon focus:ring-0">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" onclick="showNotification('Password reset link sent to email')" class="text-neon hover:underline">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="w-full bg-neon text-black font-black text-xs py-4 rounded-xl hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(0,255,102,0.3)]">
+                    Login
+                </button>
+            </form>
+
+            <div class="relative flex py-1 items-center">
+                <div class="flex-grow border-t border-borderCol"></div>
+                <span class="flex-shrink mx-4 text-gray-500 text-[10px] uppercase font-bold">or</span>
+                <div class="flex-grow border-t border-borderCol"></div>
+            </div>
+
+            <!-- Google One-Tap / Popup Login Button -->
+            <button onclick="handleGoogleLogin()" class="w-full bg-[#050807] border border-borderCol text-white font-bold text-xs py-3.5 rounded-xl hover:border-neon transition-all flex items-center justify-center space-x-3 shadow-md">
+                <i class="fa-brands fa-google text-red-500 text-sm"></i>
+                <span>Continue with Google</span>
+            </button>
+
+            <div class="text-center text-xs text-gray-400 pt-2">
+                Don't have an account? <button onclick="switchToRegister()" class="text-neon font-bold hover:underline">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIREBASE REGISTER MODAL (Matched to Design Reference) -->
+    <div id="registerModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="relative w-full max-w-md bg-[#0d1512] border border-borderCol rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <button onclick="toggleRegisterModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#050807] border border-borderCol text-gray-400 hover:text-neon hover:border-neon flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+
+            <div class="text-center space-y-1">
+                <h3 class="text-2xl font-black text-white">Register</h3>
+                <p class="text-xs text-gray-400">Create your account and get started.</p>
+            </div>
+
+            <form id="registerForm" onsubmit="handleEmailRegister(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1.5">Full Name</label>
+                    <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-3 focus-within:border-neon">
+                        <i class="fa-regular fa-user text-gray-400 text-xs mr-3"></i>
+                        <input type="text" id="regName" required placeholder="John Doe" class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1.5">Email Address</label>
+                    <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-3 focus-within:border-neon">
+                        <i class="fa-regular fa-envelope text-gray-400 text-xs mr-3"></i>
+                        <input type="email" id="regEmail" required placeholder="john@example.com" class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1.5">Password</label>
+                    <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-3 focus-within:border-neon">
+                        <i class="fa-solid fa-lock text-gray-400 text-xs mr-3"></i>
+                        <input type="password" id="regPassword" required placeholder="••••••••" class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-neon text-black font-black text-xs py-4 rounded-xl hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(0,255,102,0.3)]">
+                    Register
+                </button>
+            </form>
+
+            <div class="relative flex py-1 items-center">
+                <div class="flex-grow border-t border-borderCol"></div>
+                <span class="flex-shrink mx-4 text-gray-500 text-[10px] uppercase font-bold">or</span>
+                <div class="flex-grow border-t border-borderCol"></div>
+            </div>
+
+            <!-- Google One-Tap / Popup Register Button -->
+            <button onclick="handleGoogleLogin()" class="w-full bg-[#050807] border border-borderCol text-white font-bold text-xs py-3.5 rounded-xl hover:border-neon transition-all flex items-center justify-center space-x-3 shadow-md">
+                <i class="fa-brands fa-google text-red-500 text-sm"></i>
+                <span>Continue with Google</span>
+            </button>
+
+            <div class="text-center text-xs text-gray-400 pt-2">
+                Already have an account? <button onclick="switchToLogin()" class="text-neon font-bold hover:underline">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BUY NOW MODAL (Reference-inspired Instant Checkout) -->
+    <div id="buyNowModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="relative w-full max-w-lg bg-[#0d1512] border border-borderCol rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <button onclick="toggleBuyNowModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#050807] border border-borderCol text-gray-400 hover:text-neon hover:border-neon flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+
+            <!-- Header Info -->
+            <div class="flex items-center space-x-4 pb-4 border-b border-borderCol">
+                <div id="modalProductIconBg" class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-2xl shadow-md shrink-0">
+                    <i id="modalProductIcon" class="fa-brands fa-instagram"></i>
+                </div>
+                <div>
+                    <span class="text-[10px] text-neon font-bold tracking-wider uppercase">Instant Checkout</span>
+                    <h3 id="modalProductName" class="text-base sm:text-lg font-black text-white">Instagram Followers Panel</h3>
+                    <div id="modalProductPrice" class="text-neon font-black text-base mt-0.5">₹50</div>
+                </div>
+            </div>
+
+            <!-- Form / Inputs -->
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-300 mb-1.5">Target Username / Link / Profile</label>
+                    <input type="text" id="modalTargetInput" placeholder="Enter your username or link here..." class="w-full bg-[#050807] border border-borderCol rounded-xl px-4 py-3 text-xs text-white placeholder-gray-500 outline-none focus:border-neon">
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-gray-400 font-bold">Select Quantity:</span>
+                    <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-3 py-1 space-x-4">
+                        <button onclick="decrementModalQty()" class="text-gray-400 hover:text-neon text-sm font-bold">-</button>
+                        <span id="modalQty" class="text-xs font-bold text-white">1</span>
+                        <button onclick="incrementModalQty()" class="text-gray-400 hover:text-neon text-sm font-bold">+</button>
+                    </div>
+                </div>
+
+                <div class="bg-[#050807] border border-borderCol rounded-2xl p-4 space-y-2 text-xs">
+                    <div class="flex justify-between"><span class="text-gray-400">Unit Price:</span><span id="modalUnitPrice" class="text-white font-medium">₹50</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">Delivery Time:</span><span class="text-neon font-medium">Instant (2-5 Mins)</span></div>
+                    <div class="flex justify-between pt-2 border-t border-borderCol font-bold text-sm"><span class="text-white">Total Amount:</span><span id="modalTotalPrice" class="text-neon text-base">₹50</span></div>
+                </div>
+            </div>
+
+            <button onclick="confirmBuyNowOrder()" class="w-full bg-neon text-black font-black text-xs py-4 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(0,255,102,0.4)]">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Proceed to Payment</span>
+            </button>
+        </div>
+    </div>
 
     <!-- Dashboard Modal -->
     <div id="dashboardModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-2 sm:p-6">
@@ -685,7 +953,7 @@
                 </div>
 
                 <div class="pt-4 border-t border-borderCol">
-                    <button onclick="toggleDashboardModal(); showNotification('Logged out successfully');" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-red-400 hover:bg-red-500/10 transition-all">
+                    <button onclick="handleLogout()" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-red-400 hover:bg-red-500/10 transition-all">
                         <i class="fa-solid fa-arrow-right-from-bracket text-sm"></i>
                         <span>Logout</span>
                     </button>
@@ -769,8 +1037,10 @@
 
                 <div id="content-orders" class="hidden space-y-6">
                     <h2 class="text-2xl font-black text-white">My Orders History</h2>
-                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 text-center text-gray-400 text-xs py-12">
-                        No orders found. Visit the shop to make your first purchase!
+                    <div id="ordersHistoryList" class="space-y-3">
+                        <div class="bg-cardBg border border-borderCol rounded-2xl p-6 text-center text-gray-400 text-xs py-12">
+                            No orders found. Visit the shop to make your first purchase!
+                        </div>
                     </div>
                 </div>
 
@@ -886,24 +1156,412 @@
         </div>
     </div>
 
-    <script>
-        let cart = [];
-        let toastTimeout = null;
+    <!-- Firebase SDK Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-analytics.js";
+        import { 
+            getAuth, 
+            signInWithEmailAndPassword, 
+            createUserWithEmailAndPassword, 
+            signInWithPopup, 
+            GoogleAuthProvider, 
+            signOut, 
+            onAuthStateChanged,
+            updateProfile 
+        } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
-        // View switching logic to separate Homepage from Shop/Categories
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAoZlk7Sd1fvnXRoFbQKcMdxTzL9fM_S80",
+            authDomain: "oro-digital-store-6eb7e.firebaseapp.com",
+            projectId: "oro-digital-store-6eb7e",
+            storageBucket: "oro-digital-store-6eb7e.firebasestorage.app",
+            messagingSenderId: "991381410438",
+            appId: "1:991381410438:web:28dcd4207ae23c93ebf707",
+            measurementId: "G-TZEQVP5KQ3"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const googleProvider = new GoogleAuthProvider();
+
+        let currentUser = null;
+
+        // Auth State Listener
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUser = user;
+                const displayName = user.displayName || user.email.split('@')[0];
+                document.getElementById('sidebarUsername').textContent = displayName;
+                document.getElementById('sidebarHandle').textContent = `@${displayName.toLowerCase().replace(/\s+/g, '')}`;
+                document.getElementById('settingsUsername').value = displayName;
+                document.getElementById('settingsEmail').value = user.email;
+            } else {
+                currentUser = null;
+                document.getElementById('sidebarUsername').textContent = "New User";
+                document.getElementById('sidebarHandle').textContent = "@newuser";
+            }
+        });
+
+        window.handleEmailLogin = async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const pass = document.getElementById('loginPassword').value;
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+                toggleLoginModal();
+                showNotification('Logged in successfully!');
+                toggleDashboardModal();
+            } catch (error) {
+                showNotification('Login error: ' + error.message);
+            }
+        }
+
+        window.handleEmailRegister = async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const pass = document.getElementById('regPassword').value;
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
+                await updateProfile(userCredential.user, { displayName: name });
+                toggleRegisterModal();
+                showNotification('Account registered & logged in!');
+                toggleDashboardModal();
+            } catch (error) {
+                showNotification('Registration error: ' + error.message);
+            }
+        }
+
+        window.handleGoogleLogin = async function() {
+            try {
+                await signInWithPopup(auth, googleProvider);
+                toggleLoginModal();
+                toggleRegisterModal();
+                showNotification('Google Sign-In successful!');
+                toggleDashboardModal();
+            } catch (error) {
+                showNotification('Google sign-in error: ' + error.message);
+            }
+        }
+
+        window.handleLogout = async function() {
+            try {
+                await signOut(auth);
+                toggleDashboardModal();
+                showNotification('Logged out successfully');
+            } catch (error) {
+                showNotification('Logout error: ' + error.message);
+            }
+        }
+
+        window.getCurrentAuthUser = () => currentUser;
+    </script>
+
+    <script>
+        // Centralized Product Catalog Details Database
+        const productsCatalog = {
+            "Instagram Followers Panel": {
+                price: 50,
+                category: "Instagram Services",
+                iconClass: "fa-brands fa-instagram",
+                iconBgClass: "from-purple-600 to-pink-600",
+                reviews: "(124 reviews)",
+                description: "Get real and active Instagram followers with our trusted panel. Instant delivery, 100% safe and secure. Boost your social media presence today!",
+                customerReview: { user: "Ayaan_07", comment: "Got my followers in just 5 minutes! Really trusted service. 100% recommended.", date: "12 Aug 2025" }
+            },
+            "Instagram Account Unban Forms": {
+                price: 60,
+                category: "Instagram Services",
+                iconClass: "fa-brands fa-instagram",
+                iconBgClass: "from-purple-600 to-pink-600",
+                reviews: "(87 reviews)",
+                description: "Recover your suspended or disabled Instagram accounts instantly using specialized developer and appeal forms. Step-by-step guidance provided.",
+                customerReview: { user: "Rohan_X", comment: "My account was banned for months, recovered it within a day using these forms!", date: "04 Sep 2025" }
+            },
+            "Gaming Related Services": {
+                price: 40,
+                category: "Gaming Services",
+                iconClass: "fa-solid fa-gamepad",
+                iconBgClass: "bg-emerald-600",
+                reviews: "(62 reviews)",
+                description: "Level up your gaming profiles, unlock rare achievements, and access fast boosting packages with elite professional support.",
+                customerReview: { user: "GamerPro99", comment: "Super fast level boost. Trusted seller with zero ban risk.", date: "20 Aug 2025" }
+            },
+            "YouTube Services": {
+                price: 70,
+                category: "Social Media Services",
+                iconClass: "fa-brands fa-youtube",
+                iconBgClass: "bg-red-600",
+                reviews: "(95 reviews)",
+                description: "Monetization-ready YouTube subscribers, watch time hours, and high-retention views delivered securely through organic networks.",
+                customerReview: { user: "CreatorStudio", comment: "Helped me complete my watch time requirements smoothly. Awesome service!", date: "10 Sep 2025" }
+            },
+            "Telegram Services": {
+                price: 30,
+                category: "Social Media Services",
+                iconClass: "fa-brands fa-telegram",
+                iconBgClass: "bg-sky-500",
+                reviews: "(48 reviews)",
+                description: "Boost your Telegram channels and groups with active real members, post views, and automated engagement systems.",
+                customerReview: { user: "CryptoKing", comment: "Added 1k members seamlessly. High quality interaction.", date: "01 Sep 2025" }
+            },
+            "Custom Digital Services": {
+                price: 100,
+                category: "Custom Services",
+                iconClass: "fa-solid fa-gears",
+                iconBgClass: "bg-[#050807] border border-borderCol text-neon",
+                reviews: "(36 reviews)",
+                description: "Tailored software scripts, custom panels, API integrations, and specialized digital tasks built directly for your custom needs.",
+                customerReview: { user: "DevGuru", comment: "Delivered custom API setup within hours. Absolute genius work!", date: "15 Aug 2025" }
+            }
+        };
+
+        let cart = [];
+        let orders = [];
+        let toastTimeout = null;
+        let currentProduct = { name: 'Instagram Followers Panel', price: 50, category: 'Instagram Services', icon: 'fa-brands fa-instagram', iconBg: 'from-purple-600 to-pink-600', reviews: '(124 reviews)' };
+        let activeBuyNowProduct = { name: 'Instagram Followers Panel', price: 50, icon: 'fa-brands fa-instagram', iconBg: 'from-purple-600 to-pink-600' };
+
+        function handleProfileClick() {
+            if (window.getCurrentAuthUser && window.getCurrentAuthUser()) {
+                toggleDashboardModal();
+            } else {
+                toggleLoginModal();
+            }
+        }
+
+        function toggleLoginModal() {
+            document.getElementById('loginModal').classList.toggle('hidden');
+        }
+
+        function toggleRegisterModal() {
+            document.getElementById('registerModal').classList.toggle('hidden');
+        }
+
+        function switchToRegister() {
+            toggleLoginModal();
+            toggleRegisterModal();
+        }
+
+        function switchToLogin() {
+            toggleRegisterModal();
+            toggleLoginModal();
+        }
+
         function switchView(viewName) {
             const homeView = document.getElementById('homeView');
             const shopView = document.getElementById('shopView');
+            const productDetailView = document.getElementById('productDetailView');
 
-            if (viewName === 'shop') {
-                homeView.classList.add('hidden');
-                shopView.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                shopView.classList.add('hidden');
+            homeView.classList.add('hidden');
+            shopView.classList.add('hidden');
+            productDetailView.classList.add('hidden');
+
+            if (viewName === 'home') {
                 homeView.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (viewName === 'shop') {
+                shopView.classList.remove('hidden');
+            } else if (viewName === 'detail') {
+                productDetailView.classList.remove('hidden');
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openProductDetail(name, price, category, iconClass, iconBgClass, reviewsStr) {
+            const productData = productsCatalog[name] || {
+                price: price,
+                category: category,
+                iconClass: iconClass,
+                iconBgClass: iconBgClass,
+                reviews: reviewsStr,
+                description: "Get real and active digital services with our trusted panel. Instant delivery, 100% safe and secure.",
+                customerReview: { user: "Ayaan_07", comment: "Got my service in just 5 minutes! Really trusted service.", date: "12 Aug 2025" }
+            };
+
+            currentProduct = { 
+                name: name, 
+                price: productData.price, 
+                category: productData.category, 
+                icon: productData.iconClass, 
+                iconBg: productData.iconBgClass, 
+                reviews: productData.reviews 
+            };
+            
+            document.getElementById('breadcrumbName').textContent = name;
+            document.getElementById('detailTitle').textContent = name;
+            document.getElementById('detailPrice').textContent = `₹${productData.price}`;
+            document.getElementById('detailReviews').textContent = productData.reviews;
+            document.getElementById('metaCategory').textContent = productData.category;
+            document.getElementById('detailBannerTitle').textContent = productData.category.toUpperCase();
+            document.getElementById('detailDescription').textContent = productData.description;
+            document.getElementById('productQty').textContent = '1';
+
+            const reviewContainer = document.getElementById('detailReviewContainer');
+            reviewContainer.innerHTML = `
+                <div class="bg-[#050807] border border-borderCol p-3 rounded-xl space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-white">${productData.customerReview.user}</span>
+                        <div class="text-amber-400 text-[10px]">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-300">${productData.customerReview.comment}</p>
+                    <span class="text-[9px] text-gray-500">${productData.customerReview.date}</span>
+                </div>
+            `;
+
+            const bigIcon = document.getElementById('detailBigIcon');
+            bigIcon.className = productData.iconClass + " text-4xl";
+
+            const bigIconBg = document.getElementById('detailBigIconBg');
+            bigIconBg.className = `w-24 h-24 rounded-2xl flex items-center justify-center text-white text-4xl mb-6 shadow-2xl relative z-10 ${productData.iconBgClass}`;
+
+            const thumb1 = document.getElementById('thumbIcon1');
+            thumb1.className = productData.iconClass + " text-lg";
+
+            switchView('detail');
+        }
+
+        function openBuyNowModal(name, price, iconClass, iconBgClass) {
+            const productData = productsCatalog[name] || { price, iconClass, iconBgClass };
+            
+            activeBuyNowProduct = { 
+                name: name, 
+                price: productData.price, 
+                icon: productData.iconClass || iconClass, 
+                iconBg: productData.iconBgClass || iconBgClass 
+            };
+            
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalProductPrice').textContent = `₹${productData.price}`;
+            document.getElementById('modalUnitPrice').textContent = `₹${productData.price}`;
+            document.getElementById('modalTotalPrice').textContent = `₹${productData.price}`;
+            document.getElementById('modalQty').textContent = '1';
+            document.getElementById('modalTargetInput').value = '';
+
+            const iconEl = document.getElementById('modalProductIcon');
+            iconEl.className = activeBuyNowProduct.icon + " text-2xl";
+
+            const iconBgEl = document.getElementById('modalProductIconBg');
+            iconBgEl.className = `w-14 h-14 rounded-2xl flex items-center justify-center text-white text-2xl shadow-md shrink-0 ${activeBuyNowProduct.iconBg}`;
+
+            document.getElementById('buyNowModal').classList.remove('hidden');
+        }
+
+        function openBuyNowModalFromDetail() {
+            openBuyNowModal(currentProduct.name, currentProduct.price, currentProduct.icon, currentProduct.iconBg);
+        }
+
+        function toggleBuyNowModal() {
+            document.getElementById('buyNowModal').classList.add('hidden');
+        }
+
+        function incrementModalQty() {
+            const qtyEl = document.getElementById('modalQty');
+            let q = parseInt(qtyEl.textContent) + 1;
+            qtyEl.textContent = q;
+            document.getElementById('modalTotalPrice').textContent = `₹${activeBuyNowProduct.price * q}`;
+        }
+
+        function decrementModalQty() {
+            const qtyEl = document.getElementById('modalQty');
+            let q = parseInt(qtyEl.textContent);
+            if (q > 1) {
+                q -= 1;
+                qtyEl.textContent = q;
+                document.getElementById('modalTotalPrice').textContent = `₹${activeBuyNowProduct.price * q}`;
+            }
+        }
+
+        function confirmBuyNowOrder() {
+            const target = document.getElementById('modalTargetInput').value.trim();
+            const q = parseInt(document.getElementById('modalQty').textContent);
+            const total = activeBuyNowProduct.price * q;
+
+            if (!target) {
+                showNotification('Please enter your target username or link!');
+                return;
+            }
+
+            const newOrder = {
+                product: activeBuyNowProduct.name,
+                amount: `₹${total}`,
+                status: 'Completed',
+                date: new Date().toLocaleDateString()
+            };
+            orders.unshift(newOrder);
+            updateOrdersTable();
+
+            toggleBuyNowModal();
+            showNotification(`Successfully purchased ${q}x ${activeBuyNowProduct.name}!`);
+        }
+
+        function updateOrdersTable() {
+            const tbody = document.getElementById('recentOrdersTable');
+            const ordersList = document.getElementById('ordersHistoryList');
+            document.getElementById('statTotalOrders').textContent = orders.length;
+
+            if (orders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-gray-500">No recent orders found.</td></tr>`;
+                ordersList.innerHTML = `<div class="bg-cardBg border border-borderCol rounded-2xl p-6 text-center text-gray-400 text-xs py-12">No orders found. Visit the shop to make your first purchase!</div>`;
+                return;
+            }
+
+            let tbodyHtml = '';
+            let listHtml = '';
+            orders.forEach(o => {
+                tbodyHtml += `
+                    <tr class="border-b border-borderCol">
+                        <td class="py-3 font-medium text-white">${o.product}</td>
+                        <td class="py-3 text-neon font-bold">${o.amount}</td>
+                        <td class="py-3"><span class="bg-neon/15 text-neon px-2.5 py-1 rounded-full text-[10px] font-bold">${o.status}</span></td>
+                        <td class="py-3 text-gray-400">${o.date}</td>
+                    </tr>`;
+                
+                listHtml += `
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-4 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xs font-bold text-white">${o.product}</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">Date: ${o.date}</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-black text-neon">${o.amount}</span>
+                            <div class="mt-1"><span class="bg-neon/15 text-neon px-2 py-0.5 rounded-full text-[9px] font-bold">${o.status}</span></div>
+                        </div>
+                    </div>`;
+            });
+            tbody.innerHTML = tbodyHtml;
+            ordersList.innerHTML = listHtml;
+        }
+
+        function incrementQty() {
+            const qtyEl = document.getElementById('productQty');
+            let q = parseInt(qtyEl.textContent);
+            qtyEl.textContent = q + 1;
+        }
+
+        function decrementQty() {
+            const qtyEl = document.getElementById('productQty');
+            let q = parseInt(qtyEl.textContent);
+            if (q > 1) {
+                qtyEl.textContent = q - 1;
+            }
+        }
+
+        function addToCartFromDetail() {
+            const q = parseInt(document.getElementById('productQty').textContent);
+            const existingItem = cart.find(item => item.name === currentProduct.name);
+            if (existingItem) {
+                existingItem.qty += q;
+            } else {
+                cart.push({ name: currentProduct.name, price: currentProduct.price, qty: q });
+            }
+            updateCartBadge();
+            showNotification(`${q}x ${currentProduct.name} added to cart!`);
         }
 
         function showNotification(message) {
@@ -971,17 +1629,6 @@
             chat.classList.toggle('hidden');
         }
 
-        function addToCart(name, price) {
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.qty += 1;
-            } else {
-                cart.push({ name, price, qty: 1 });
-            }
-            updateCartBadge();
-            showNotification(`${name} added to cart!`);
-        }
-
         function removeFromCart(name) {
             cart = cart.filter(item => item.name !== name);
             updateCartBadge();
@@ -999,35 +1646,28 @@
             const totalContainer = document.getElementById('cartTotal');
             
             if (cart.length === 0) {
-                listContainer.innerHTML = `
-                    <div class="text-center text-gray-500 py-12">
-                        <i class="fa-solid fa-cart-arrow-down text-4xl mb-3 text-gray-600"></i>
-                        <p class="text-sm">Your cart is currently empty.</p>
-                    </div>`;
+                listContainer.innerHTML = `<p class="text-xs text-gray-500 text-center py-8">Your cart is empty.</p>`;
                 totalContainer.textContent = '₹0';
                 return;
             }
 
             let html = '';
             let total = 0;
-
             cart.forEach(item => {
-                total += item.price * item.qty;
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
                 html += `
-                    <div class="bg-[#080c0a] border border-borderCol rounded-xl p-3 flex items-center justify-between">
+                    <div class="bg-[#050807] border border-borderCol rounded-2xl p-4 flex items-center justify-between">
                         <div>
                             <h4 class="text-xs font-bold text-white">${item.name}</h4>
-                            <p class="text-[11px] text-gray-400">₹${item.price} x ${item.qty}</p>
+                            <p class="text-[10px] text-gray-400 mt-0.5">₹${item.price} × ${item.qty}</p>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <span class="text-xs font-bold text-neon">₹${item.price * item.qty}</span>
-                            <button onclick="removeFromCart('${item.name}')" class="text-gray-500 hover:text-red-400 text-xs">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
+                            <span class="text-xs font-black text-neon">₹${itemTotal}</span>
+                            <button onclick="removeFromCart('${item.name}')" class="text-red-400 hover:text-red-500 text-xs"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>`;
             });
-
             listContainer.innerHTML = html;
             totalContainer.textContent = `₹${total}`;
         }
@@ -1037,24 +1677,30 @@
                 showNotification('Your cart is empty!');
                 return;
             }
-            showNotification('Redirecting to secure payment gateway...');
-            setTimeout(() => {
-                cart = [];
-                updateCartBadge();
-                toggleCartModal();
-                showNotification('Order placed successfully! Check your email.');
-            }, 1500);
+            let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            cart.forEach(item => {
+                orders.unshift({
+                    product: `${item.qty}x ${item.name}`,
+                    amount: `₹${item.price * item.qty}`,
+                    status: 'Completed',
+                    date: new Date().toLocaleDateString()
+                });
+            });
+            cart = [];
+            updateCartBadge();
+            updateOrdersTable();
+            toggleCartModal();
+            showNotification(`Checkout successful! Total paid: ₹${total}`);
         }
 
-        function filterCategory(category) {
+        function filterCategory(categoryName) {
             switchView('shop');
-
-            const categories = ['All', 'Instagram', 'Social Media', 'Gaming', 'Custom'];
-            categories.forEach(cat => {
-                const btn = document.getElementById(`cat-btn-${cat}`);
+            const buttons = ['All', 'Instagram', 'Social Media', 'Gaming', 'Custom'];
+            buttons.forEach(b => {
+                const btn = document.getElementById(`cat-btn-${b}`);
                 if (btn) {
-                    if (cat === category) {
-                        btn.className = "w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-bold bg-neon/15 text-neon border border-neon/40 transition-all shadow-[0_0_10px_rgba(0,255,102,0.15)]";
+                    if (b === categoryName) {
+                        btn.className = "w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-bold bg-neon/10 text-neon border border-neon/30 transition-all";
                     } else {
                         btn.className = "w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-neon hover:bg-[#050807] transition-all";
                     }
@@ -1063,24 +1709,21 @@
 
             const cards = document.querySelectorAll('.product-card');
             cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (category === 'All' || cardCategory === category) {
+                const cardCat = card.getAttribute('data-category');
+                if (categoryName === 'All' || cardCat === categoryName) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
                 }
             });
-            showNotification(category === 'All' ? 'Showing all products' : `Filtered category: ${category}`);
         }
 
         function handleSearch(e) {
-            switchView('shop');
-            
-            const query = e.target.value.toLowerCase();
+            const term = e.target.value.toLowerCase().trim();
             const cards = document.querySelectorAll('.product-card');
             cards.forEach(card => {
                 const name = card.getAttribute('data-name').toLowerCase();
-                if (name.includes(query)) {
+                if (name.includes(term)) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
