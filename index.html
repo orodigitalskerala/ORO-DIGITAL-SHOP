@@ -1,1111 +1,1092 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>WritzMovies - Stream Anime, Movies & TV Shows</title>
-  
-  <link rel="dns-prefetch" href="//api.themoviedb.org" />
-  <link rel="dns-prefetch" href="//image.tmdb.org" />
-  <link rel="dns-prefetch" href="//cdn.tailwindcss.com" />
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="//vidsrc.cc" />
-  <link rel="dns-prefetch" href="//vidsrc.xyz" />
-  <link rel="dns-prefetch" href="//vidsrc.sh" />
-  <link rel="dns-prefetch" href="//vidsrc2.ru" />
-  <link rel="dns-prefetch" href="//autoembed.cc" />
-
-  <link rel="preconnect" href="https://image.tmdb.org" crossorigin />
-  <link rel="preconnect" href="https://api.themoviedb.org" crossorigin />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #07080a;
-      color: #e2e8f0;
-      overflow-x: hidden;
-    }
-    .brand-font { font-family: 'Orbitron', sans-serif; }
-    
-    .wm-glow { 
-      box-shadow: 0 0 25px rgba(239, 68, 68, 0.45); 
-    }
-    .wm-card-glow:hover {
-      box-shadow: 0 0 25px rgba(239, 68, 68, 0.4), 0 0 10px rgba(220, 38, 38, 0.3);
-      border-color: rgba(239, 68, 68, 0.8);
-    }
-    
-    .wm-btn-primary {
-      background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
-      border: 1px solid rgba(248, 113, 113, 0.4);
-      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.35);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .wm-btn-primary:hover {
-      background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
-      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.55);
-      transform: translateY(-2px);
-    }
-    
-    .glass-nav {
-      background: rgba(11, 13, 18, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(239, 68, 68, 0.15);
-    }
-    .glass-panel {
-      background: rgba(15, 17, 23, 0.95);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .writz-bg-card {
-      background: linear-gradient(135deg, rgba(7, 8, 10, 0.92) 0%, rgba(15, 20, 28, 0.88) 100%), 
-                  url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    
-    .hero-banner { position: relative; width: 100%; height: 55vh; min-height: 420px; max-height: 580px; }
-    .hero-poster {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: #07080a; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #ef4444; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORO DIGITAL SHOP</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neon: '#00ff66',
+                        darkBg: '#050807',
+                        cardBg: '#0d1512',
+                        borderCol: '#172720'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050807;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050807;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #172720;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ff66;
+        }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white overflow-hidden">
+<body class="bg-darkBg text-white antialiased selection:bg-neon selection:text-black">
 
-  <!-- ENTRY TERMS POPUP MODAL -->
-  <div id="termsModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
-    <div class="relative glass-panel w-full max-w-lg rounded-2xl p-6 md:p-8 border border-red-500/40 text-center shadow-2xl">
-      <div class="brand-font text-3xl md:text-4xl font-black tracking-tight mb-4 flex items-center justify-center">
-        <span class="text-white">Writz</span><span class="text-red-500">Movies</span>
-      </div>
-      <div class="w-12 h-12 bg-red-500/20 border border-red-500/50 rounded-full flex items-center justify-center mx-auto mb-4 text-red-500 text-xl">
-        <i class="fa-solid fa-shield-halved"></i>
-      </div>
-      <h2 class="text-xl md:text-2xl font-black text-white mb-3 brand-font tracking-wide">TERMS OF USE</h2>
-      <div class="text-slate-300 text-sm leading-relaxed space-y-3 mb-6 bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-left">
-        <p class="font-medium">Welcome to <strong class="brand-font"><span class="text-white">Writz</span><span class="text-red-500">Movies</span></strong>. Accept terms to enter:</p>
-        <ul class="list-disc list-inside space-y-1 text-slate-400 text-xs">
-          <li>We respect copyright owners and rights holders.</li>
-          <li>Personal non-commercial streaming index only.</li>
-        </ul>
-      </div>
-      <button id="acceptTermsBtn" class="w-full wm-btn-primary text-white font-bold py-3.5 px-6 rounded-xl text-sm transition transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
-        <i class="fa-solid fa-check"></i> Accept & Enter
-      </button>
-    </div>
-  </div>
+    <header class="fixed top-0 left-0 right-0 z-40 bg-[#050807]/90 backdrop-blur-md border-b border-borderCol">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('home')">
+                <div class="relative flex items-center justify-center">
+                    <span class="absolute -top-3 text-neon text-xs"><i class="fa-solid fa-crown"></i></span>
+                    <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center">
+                        ORO <span class="text-neon ml-1.5 drop-shadow-[0_0_10px_rgba(0,255,102,0.5)]">DIGITAL SHOP</span>
+                    </h1>
+                </div>
+            </div>
 
-  <!-- TOP NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-40 glass-nav px-4 md:px-6 py-4 transition-all duration-300">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-      <div class="flex items-center gap-8">
-        <button onclick="triggerLogoClick()" class="brand-font text-2xl md:text-3xl font-black tracking-tight flex items-center focus:outline-none hover:opacity-90 transition">
-          <span class="text-white">Writz</span><span class="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]">Movies</span>
-        </button>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-300">
-          <button onclick="showHomeView()" class="hover:text-red-500 transition text-red-500 font-bold">Home</button>
-          <button onclick="showLibraryView('anime')" class="hover:text-red-500 transition flex items-center gap-1.5"><i class="fa-solid fa-torii-gate text-xs"></i> Anime</button>
-          <button onclick="showLibraryView('movie')" class="hover:text-red-500 transition flex items-center gap-1.5"><i class="fa-solid fa-film text-xs"></i> Movies</button>
-          <button onclick="showLibraryView('tv')" class="hover:text-red-500 transition flex items-center gap-1.5"><i class="fa-solid fa-tv text-xs"></i> TV Shows</button>
-        </nav>
-      </div>
-      <div class="flex items-center gap-3">
-        <div class="relative">
-          <input id="searchInput" oninput="debounceSearch()" type="text" placeholder="Search movies, TV, anime..." 
-            class="bg-slate-900/90 text-sm text-white rounded-full pl-10 pr-4 py-2 w-36 sm:w-64 border border-slate-700 focus:outline-none focus:border-red-500 transition duration-200">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+            <!-- Navigation Links (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#" onclick="switchView('home'); setActiveNav(this);" class="nav-link text-neon font-bold transition-colors">Home</a>
+                <a href="#" onclick="switchView('shop'); setActiveNav(this);" class="nav-link hover:text-neon transition-colors">Shop</a>
+                <a href="#" onclick="switchView('shop'); setActiveNav(this);" class="nav-link hover:text-neon transition-colors">Categories</a>
+                <a href="#about" onclick="switchView('home'); setActiveNav(this);" class="nav-link hover:text-neon transition-colors">About</a>
+                <a href="#contact" onclick="switchView('home'); setActiveNav(this);" class="nav-link hover:text-neon transition-colors">Contact</a>
+            </nav>
+
+            <!-- Right Actions (Search, Profile, Cart, Mobile Menu) -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="hidden lg:flex items-center bg-[#0d1512] border border-borderCol rounded-full px-4 py-2 w-64 focus-within:border-neon transition-all">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm mr-3"></i>
+                    <input type="text" oninput="handleSearch(event)" placeholder="Search products..." class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+                </div>
+
+                <!-- Profile Icon (Triggers Dashboard Modal) -->
+                <button onclick="toggleDashboardModal()" class="w-10 h-10 rounded-full bg-cardBg border border-borderCol flex items-center justify-center text-gray-300 hover:text-neon hover:border-neon transition-all shadow-sm">
+                    <i class="fa-regular fa-user text-lg"></i>
+                </button>
+
+                <!-- Cart Icon with Badge -->
+                <button onclick="toggleCartModal()" class="relative w-10 h-10 rounded-full bg-cardBg border border-borderCol flex items-center justify-center text-gray-300 hover:text-neon hover:border-neon transition-all shadow-sm">
+                    <i class="fa-solid fa-cart-shopping text-sm"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-neon text-black text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(0,255,102,0.8)]">0</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-cardBg border border-borderCol flex items-center justify-center text-gray-300 hover:text-neon">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- HERO BANNER -->
-  <section class="mt-16 relative w-full hero-banner overflow-hidden bg-black border-b border-slate-800">
-    <img id="hero-poster" class="hero-poster" alt="Hero Banner" src="https://image.tmdb.org/t/p/original/m91f9P3B0S2809uS2r1p11v1p2y.jpg" />
-
-    <div class="absolute inset-0 bg-gradient-to-t from-[#07080a] via-transparent to-transparent z-10"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#07080a]/90 via-[#07080a]/40 to-transparent z-10"></div>
-
-    <div class="relative z-20 max-w-7xl mx-auto h-full px-6 flex flex-col justify-end pb-10">
-      <div id="heroBadge" class="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/40 rounded-full px-3 py-1 text-xs text-red-400 font-semibold mb-3 w-fit">
-        <i class="fa-solid fa-fire text-red-500"></i> FEATURED MEDIA
-      </div>
-      <h1 id="heroTitle" class="brand-font text-2xl md:text-5xl font-black text-white mb-3 tracking-wide drop-shadow-lg">Loading Featured...</h1>
-      <p id="heroDesc" class="text-gray-300 text-xs md:text-base max-w-xl mb-6 line-clamp-3 leading-relaxed">Loading stream catalog...</p>
-      <div class="flex items-center gap-4">
-        <button id="heroPlayBtn" class="wm-btn-primary text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 text-sm md:text-base transition transform hover:scale-105 cursor-pointer">
-          <i class="fa-solid fa-play"></i> Watch Now
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEEDBACK BANNER -->
-  <div id="feedbackBanner" class="hidden max-w-7xl mx-auto px-4 md:px-6 pt-6">
-    <div class="bg-gradient-to-r from-red-600/10 via-rose-600/20 to-red-600/10 border border-red-500/40 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-500 text-lg">
-          <i class="fa-solid fa-comments"></i>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cardBg border-b border-borderCol px-6 py-4 space-y-3">
+            <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-2.5 mb-3">
+                <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm mr-3"></i>
+                <input type="text" oninput="handleSearch(event)" placeholder="Search products..." class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+            </div>
+            <a href="#" onclick="switchView('home'); setActiveNav(this); toggleMobileMenu();" class="block text-sm font-bold text-neon py-1">Home</a>
+            <a href="#" onclick="switchView('shop'); setActiveNav(this); toggleMobileMenu();" class="block text-sm font-medium text-gray-300 hover:text-neon py-1">Shop</a>
+            <a href="#" onclick="switchView('shop'); setActiveNav(this); toggleMobileMenu();" class="block text-sm font-medium text-gray-300 hover:text-neon py-1">Categories</a>
+            <a href="#about" onclick="switchView('home'); setActiveNav(this); toggleMobileMenu();" class="block text-sm font-medium text-gray-300 hover:text-neon py-1">About</a>
+            <a href="#contact" onclick="switchView('home'); setActiveNav(this); toggleMobileMenu();" class="block text-sm font-medium text-gray-300 hover:text-neon py-1">Contact</a>
         </div>
-        <div>
-          <h4 class="text-sm font-bold text-white">We'd love your thoughts!</h4>
-          <p class="text-xs text-slate-300">Make sure to give feedback on Instagram <strong class="text-red-500">WritzMovies</strong></p>
-        </div>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-9 h-9 rounded-full bg-gradient-to-tr from-red-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-base shadow-md hover:scale-110 transition transform">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="w-9 h-9 rounded-full bg-emerald-500 flex items-center justify-center text-white text-base shadow-md hover:scale-110 transition transform">
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
-      </div>
-    </div>
-  </div>
+    </header>
 
-  <!-- MAIN CONTAINER -->
-  <main class="pb-16 flex-grow">
-
-    <!-- NAVIGATION TABS -->
-    <div class="max-w-7xl mx-auto px-4 md:px-6 my-6">
-      <div class="bg-slate-900/90 border border-slate-800 p-2.5 rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-lg">
-        <div class="flex items-center gap-2 flex-wrap">
-          <button onclick="showHomeView()" id="tabHome" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition wm-btn-primary text-white shadow">
-            <i class="fa-solid fa-house"></i> Home
-          </button>
-          <button onclick="showLibraryView('anime')" id="tabAnime" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white">
-            <i class="fa-solid fa-torii-gate text-red-500"></i> Anime Library
-          </button>
-          <button onclick="showLibraryView('movie')" id="tabMovies" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white">
-            <i class="fa-solid fa-clapperboard text-red-500"></i> Movies Library
-          </button>
-          <button onclick="showLibraryView('tv')" id="tabTv" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white">
-            <i class="fa-solid fa-tv text-red-500"></i> TV Shows Library
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- HOME VIEW SECTION -->
-    <div id="homeView" class="max-w-7xl mx-auto px-4 md:px-6 space-y-12">
-      <div class="writz-bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-red-500/30 shadow-2xl space-y-12">
+    <main class="pt-28 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- ANIME SECTION -->
-        <section id="animeSection">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-              <span class="w-1.5 h-6 bg-red-500 rounded-full"></span> Top Anime
-            </h2>
-            <div class="flex items-center gap-2">
-              <button onclick="scrollRow('topAnimeRow', -300)" class="w-8 h-8 rounded-full bg-slate-800/90 hover:bg-slate-700 text-white flex items-center justify-center transition border border-slate-700">
-                <i class="fa-solid fa-chevron-left text-xs"></i>
-              </button>
-              <button onclick="scrollRow('topAnimeRow', 300)" class="w-8 h-8 rounded-full bg-slate-800/90 hover:bg-slate-700 text-white flex items-center justify-center transition border border-slate-700">
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-              </button>
-            </div>
-          </div>
+        <!-- HOME VIEW (Hero, Category Quick Icons, Popular Products Grid) -->
+        <div id="homeView">
+            <!-- Hero Banner Section matching reference image -->
+            <section class="relative bg-gradient-to-r from-[#0d1512] to-[#080c0a] border border-borderCol rounded-3xl p-6 sm:p-12 overflow-hidden shadow-2xl">
+                <!-- Background glow effects -->
+                <div class="absolute -right-20 -top-20 w-96 h-96 bg-neon/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div id="topAnimeRow" class="flex items-center gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
-            <div class="text-red-500 font-semibold text-sm py-8"><i class="fa-solid fa-spinner animate-spin"></i> Loading Anime...</div>
-          </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-neon/10 border border-neon/30 text-neon px-4 py-1.5 rounded-full text-xs font-bold tracking-wide">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>PREMIUM DIGITAL STORE</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+                            Welcome to <br>
+                            <span class="text-neon drop-shadow-[0_0_15px_rgba(0,255,102,0.4)]">ORO DIGITAL SHOP</span>
+                        </h2>
+
+                        <p class="text-sm sm:text-base text-gray-300 max-w-xl font-normal leading-relaxed">
+                            Your One-Stop Destination for Digital Products, Services & More.
+                        </p>
+
+                        <!-- Features Highlights -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                            <div class="flex flex-col space-y-1">
+                                <i class="fa-solid fa-bolt text-neon text-lg"></i>
+                                <h4 class="text-xs font-bold text-white">Instant Delivery</h4>
+                                <p class="text-[11px] text-gray-400">Get your product in minutes.</p>
+                            </div>
+                            <div class="flex flex-col space-y-1">
+                                <i class="fa-solid fa-shield-check text-neon text-lg"></i>
+                                <h4 class="text-xs font-bold text-white">100% Secure</h4>
+                                <p class="text-[11px] text-gray-400">Safe & trusted payments.</p>
+                            </div>
+                            <div class="flex flex-col space-y-1">
+                                <i class="fa-solid fa-headset text-neon text-lg"></i>
+                                <h4 class="text-xs font-bold text-white">24/7 Support</h4>
+                                <p class="text-[11px] text-gray-400">We're always here to help.</p>
+                            </div>
+                            <div class="flex flex-col space-y-1">
+                                <i class="fa-solid fa-star text-neon text-lg"></i>
+                                <h4 class="text-xs font-bold text-white">Trusted by Thousands</h4>
+                                <p class="text-[11px] text-gray-400">Real customers, real reviews.</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <button onclick="switchView('shop')" class="bg-neon text-black font-black text-xs px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(0,255,102,0.4)] hover:bg-emerald-400 transition-all flex items-center space-x-2">
+                                <span>VISIT SHOP</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <button onclick="switchView('shop'); filterCategory('All');" class="bg-cardBg border border-borderCol text-white font-bold text-xs px-8 py-4 rounded-xl hover:border-neon transition-all flex items-center space-x-2">
+                                <span>VIEW CATEGORIES</span>
+                                <i class="fa-solid fa-grid-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hero Graphic / Illustration -->
+                    <div class="lg:col-span-5 flex justify-center relative">
+                        <div class="relative w-full max-w-sm h-72 sm:h-80 bg-gradient-to-tr from-emerald-950/40 to-black border border-borderCol rounded-3xl p-6 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden group">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,102,0.1)_0,transparent_70%)]"></div>
+                            <i class="fa-solid fa-user-secret text-7xl text-neon mb-4 drop-shadow-[0_0_20px_rgba(0,255,102,0.5)]"></i>
+                            <h3 class="text-lg font-black text-white">BIGGER, FASTER, BETTER</h3>
+                            <p class="text-xs text-gray-400 mt-1">Elite Digital Toolkits & Panels</p>
+                            <div class="mt-6 flex space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-neon shadow-[0_0_8px_#00ff66]"></span>
+                                <span class="w-3 h-3 rounded-full bg-borderCol"></span>
+                                <span class="w-3 h-3 rounded-full bg-borderCol"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category Quick-Access Horizontal Cards -->
+            <section class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div onclick="filterCategory('Instagram')" class="bg-cardBg border border-borderCol hover:border-neon rounded-2xl p-4 flex flex-col items-center text-center cursor-pointer transition-all group shadow-md">
+                    <i class="fa-brands fa-instagram text-2xl text-neon mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-xs font-bold text-white">Instagram Services</h4>
+                    <p class="text-[10px] text-gray-400 mt-0.5">Followers · Likes · Views</p>
+                </div>
+                <div onclick="filterCategory('Gaming')" class="bg-cardBg border border-borderCol hover:border-neon rounded-2xl p-4 flex flex-col items-center text-center cursor-pointer transition-all group shadow-md">
+                    <i class="fa-solid fa-gamepad text-2xl text-neon mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-xs font-bold text-white">Gaming Related Services</h4>
+                    <p class="text-[10px] text-gray-400 mt-0.5">Accounts · Boosts · More</p>
+                </div>
+                <div onclick="filterCategory('Social Media')" class="bg-cardBg border border-borderCol hover:border-neon rounded-2xl p-4 flex flex-col items-center text-center cursor-pointer transition-all group shadow-md">
+                    <i class="fa-brands fa-youtube text-2xl text-neon mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-xs font-bold text-white">YouTube Services</h4>
+                    <p class="text-[10px] text-gray-400 mt-0.5">Subscribers · Views · Likes</p>
+                </div>
+                <div onclick="filterCategory('Social Media')" class="bg-cardBg border border-borderCol hover:border-neon rounded-2xl p-4 flex flex-col items-center text-center cursor-pointer transition-all group shadow-md">
+                    <i class="fa-brands fa-telegram text-2xl text-neon mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-xs font-bold text-white">Telegram Services</h4>
+                    <p class="text-[10px] text-gray-400 mt-0.5">Members · Views · Boosts</p>
+                </div>
+                <div onclick="filterCategory('Custom')" class="bg-cardBg border border-borderCol hover:border-neon rounded-2xl p-4 flex flex-col items-center text-center cursor-pointer transition-all group shadow-md">
+                    <i class="fa-solid fa-gears text-2xl text-neon mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-xs font-bold text-white">Custom Digital Services</h4>
+                    <p class="text-[10px] text-gray-400 mt-0.5">Tailored to your needs</p>
+                </div>
+                <div onclick="switchView('shop')" class="bg-cardBg border border-borderCol hover:border-neon rounded-2xl p-4 flex flex-col items-center text-center cursor-pointer transition-all group shadow-md">
+                    <i class="fa-solid fa-star text-2xl text-neon mb-2 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="text-xs font-bold text-white">Premium Support</h4>
+                    <p class="text-[10px] text-gray-400 mt-0.5">Always here for you</p>
+                </div>
+            </section>
+
+            <!-- Popular Products Section -->
+            <section class="mt-16">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-1.5 h-6 bg-neon rounded-full"></div>
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Popular Products</h3>
+                    </div>
+                    <button onclick="switchView('shop')" class="text-neon hover:text-emerald-400 text-xs font-bold flex items-center space-x-1">
+                        <span>View All</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Popular Product 1 -->
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Instagram Followers Panel</h4>
+                            <div class="text-2xl font-black text-white mt-3">₹50</div>
+                            <div class="flex items-center space-x-1 mt-2 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="text-gray-400 text-[11px] ml-1">(124 reviews)</span>
+                            </div>
+                        </div>
+                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Buy Now</span>
+                        </button>
+                    </div>
+
+                    <!-- Popular Product 2 -->
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Instagram Account Unban Forms</h4>
+                            <div class="text-2xl font-black text-white mt-3">₹60</div>
+                            <div class="flex items-center space-x-1 mt-2 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="text-gray-400 text-[11px] ml-1">(87 reviews)</span>
+                            </div>
+                        </div>
+                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Buy Now</span>
+                        </button>
+                    </div>
+
+                    <!-- Popular Product 3 -->
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Gaming Related Services</h4>
+                            <div class="text-2xl font-black text-white mt-3">₹40</div>
+                            <div class="flex items-center space-x-1 mt-2 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="text-gray-400 text-[11px] ml-1">(62 reviews)</span>
+                            </div>
+                        </div>
+                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Buy Now</span>
+                        </button>
+                    </div>
+
+                    <!-- Popular Product 4 -->
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">YouTube Services</h4>
+                            <div class="text-2xl font-black text-white mt-3">₹70</div>
+                            <div class="flex items-center space-x-1 mt-2 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="text-gray-400 text-[11px] ml-1">(95 reviews)</span>
+                            </div>
+                        </div>
+                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Buy Now</span>
+                        </button>
+                    </div>
+
+                    <!-- Popular Product 5 -->
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                <i class="fa-brands fa-telegram"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Telegram Services</h4>
+                            <div class="text-2xl font-black text-white mt-3">₹30</div>
+                            <div class="flex items-center space-x-1 mt-2 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="text-gray-400 text-[11px] ml-1">(48 reviews)</span>
+                            </div>
+                        </div>
+                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Buy Now</span>
+                        </button>
+                    </div>
+
+                    <!-- Popular Product 6 -->
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-[#050807] border border-borderCol flex items-center justify-center text-neon text-xl mb-4 shadow-md">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Custom Digital Services</h4>
+                            <div class="text-2xl font-black text-neon mt-3">₹100+</div>
+                            <div class="flex items-center space-x-1 mt-2 text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="text-gray-400 text-[11px] ml-1">(36 reviews)</span>
+                            </div>
+                        </div>
+                        <button onclick="switchView('shop')" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Buy Now</span>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- SHOP & CATEGORIES VIEW -->
+        <section id="shopView" class="hidden">
+            <!-- Shop Title Header -->
+            <div class="mb-8 flex items-center justify-between">
+                <div>
+                    <h2 class="text-3xl font-black text-white">Our Shop & Categories</h2>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Select products and add them directly to your cart.</p>
+                </div>
+                <button onclick="switchView('home')" class="bg-cardBg border border-borderCol text-xs px-4 py-2 rounded-xl text-gray-300 hover:text-neon transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Left Categories Sidebar -->
+                <div class="lg:col-span-1 bg-cardBg border border-borderCol rounded-2xl p-4 h-fit space-y-2">
+                    <h3 class="text-sm font-black text-white px-3 py-2 mb-2">Categories</h3>
+                    
+                    <button onclick="filterCategory('All')" id="cat-btn-All" class="w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-bold bg-neon/10 text-neon border border-neon/30 transition-all">
+                        <i class="fa-solid fa-boxes-stacked w-5"></i>
+                        <span>All Products</span>
+                    </button>
+                    <button onclick="filterCategory('Instagram')" id="cat-btn-Instagram" class="w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-neon hover:bg-[#050807] transition-all">
+                        <i class="fa-brands fa-instagram w-5 text-base"></i>
+                        <span>Instagram Services</span>
+                    </button>
+                    <button onclick="filterCategory('Social Media')" id="cat-btn-Social Media" class="w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-neon hover:bg-[#050807] transition-all">
+                        <i class="fa-solid fa-share-nodes w-5"></i>
+                        <span>Social Media Services</span>
+                    </button>
+                    <button onclick="filterCategory('Gaming')" id="cat-btn-Gaming" class="w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-neon hover:bg-[#050807] transition-all">
+                        <i class="fa-solid fa-gamepad w-5"></i>
+                        <span>Gaming Services</span>
+                    </button>
+                    <button onclick="filterCategory('Custom')" id="cat-btn-Custom" class="w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-neon hover:bg-[#050807] transition-all">
+                        <i class="fa-solid fa-gears w-5"></i>
+                        <span>Custom Services</span>
+                    </button>
+                </div>
+
+                <!-- Right Content Area (Search, Sort & Products Grid) -->
+                <div class="lg:col-span-3 space-y-6">
+                    <!-- Search & Sort Controls Bar -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-cardBg border border-borderCol rounded-2xl p-4">
+                        <div class="flex items-center bg-[#050807] border border-borderCol rounded-xl px-4 py-2.5 w-full sm:w-72 focus-within:border-neon transition-all">
+                            <i class="fa-solid fa-magnifying-glass text-gray-400 text-xs mr-3"></i>
+                            <input type="text" oninput="handleSearch(event)" placeholder="Search products..." class="bg-transparent text-xs text-white placeholder-gray-500 outline-none w-full">
+                        </div>
+                        <div class="flex items-center space-x-2 w-full sm:w-auto justify-end">
+                            <span class="text-xs text-gray-400">Sort by:</span>
+                            <select class="bg-[#050807] border border-borderCol rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-neon">
+                                <option>Featured</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Product Card 1 -->
+                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Instagram" data-name="Instagram Followers Panel">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Instagram Followers Panel</h4>
+                                <div class="text-2xl font-black text-white mt-3">₹50</div>
+                            </div>
+                            <button onclick="addToCart('Instagram Followers Panel', 50)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Instagram" data-name="Instagram Account Unban Forms">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Instagram Account Unban Forms</h4>
+                                <div class="text-2xl font-black text-white mt-3">₹60</div>
+                            </div>
+                            <button onclick="addToCart('Instagram Account Unban Forms', 60)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Gaming" data-name="Gaming Related Services">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                    <i class="fa-solid fa-gamepad"></i>
+                                </div>
+                                <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Gaming Related Services</h4>
+                                <div class="text-2xl font-black text-white mt-3">₹40</div>
+                            </div>
+                            <button onclick="addToCart('Gaming Related Services', 40)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Product Card 4 -->
+                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Custom" data-name="Custom Digital Services">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-[#050807] border border-borderCol flex items-center justify-center text-neon text-xl mb-4 shadow-md">
+                                    <i class="fa-solid fa-gears"></i>
+                                </div>
+                                <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Custom Digital Services</h4>
+                                <div class="text-2xl font-black text-neon mt-3">₹100+</div>
+                            </div>
+                            <button onclick="addToCart('Custom Digital Services', 100)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Product Card 5 -->
+                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Social Media" data-name="YouTube Services">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </div>
+                                <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">YouTube Services</h4>
+                                <div class="text-2xl font-black text-white mt-3">₹70</div>
+                            </div>
+                            <button onclick="addToCart('YouTube Services', 70)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+
+                        <!-- Product Card 6 -->
+                        <div class="product-card bg-cardBg border border-borderCol rounded-2xl p-6 flex flex-col justify-between hover:border-neon/60 transition-all shadow-lg group" data-category="Social Media" data-name="Telegram Services">
+                            <div>
+                                <div class="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white text-xl mb-4 shadow-md">
+                                    <i class="fa-brands fa-telegram"></i>
+                                </div>
+                                <h4 class="text-base font-bold text-white group-hover:text-neon transition-colors">Telegram Services</h4>
+                                <div class="text-2xl font-black text-white mt-3">₹30</div>
+                            </div>
+                            <button onclick="addToCart('Telegram Services', 30)" class="mt-6 w-full bg-neon text-black font-black text-xs py-3 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- TV SHOWS SECTION -->
-        <section id="tvSection">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-              <span class="w-1.5 h-6 bg-red-500 rounded-full"></span> Top TV Shows
-            </h2>
-            <div class="flex items-center gap-2">
-              <button onclick="scrollRow('topTvRow', -300)" class="w-8 h-8 rounded-full bg-slate-800/90 hover:bg-slate-700 text-white flex items-center justify-center transition border border-slate-700">
-                <i class="fa-solid fa-chevron-left text-xs"></i>
-              </button>
-              <button onclick="scrollRow('topTvRow', 300)" class="w-8 h-8 rounded-full bg-slate-800/90 hover:bg-slate-700 text-white flex items-center justify-center transition border border-slate-700">
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-              </button>
+    </main>
+
+    <!-- NEW ABOUT US & CONTACT US SECTION MATCHING REFERENCE IMAGE -->
+    <footer id="about" class="border-t border-borderCol bg-[#050807] py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- About Us Box (Left Side - Spans 7 cols) -->
+            <div class="lg:col-span-7 bg-cardBg border border-borderCol rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                <!-- Background ambient glow -->
+                <div class="absolute right-0 top-0 w-72 h-72 bg-neon/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-white tracking-wide">About Us</h2>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-2 font-medium">We are more than just a shop, we are a digital partner.</p>
+                    
+                    <p class="text-xs sm:text-sm text-gray-300 mt-6 leading-relaxed">
+                        ORO DIGITAL SHOP is a trusted platform providing high-quality digital products, services and solutions. Our goal is to make your online journey easier, safer and more affordable. We believe in customer satisfaction, fast delivery and complete transparency.
+                    </p>
+                </div>
+
+                <!-- Stats Footer Inside About Card -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 mt-8 border-t border-borderCol items-center">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-heart text-neon text-lg"></i>
+                        <div>
+                            <div class="text-sm sm:text-base font-black text-white">1000+</div>
+                            <div class="text-[10px] text-gray-400">Happy Customers</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-box-archive text-neon text-lg"></i>
+                        <div>
+                            <div class="text-sm sm:text-base font-black text-white">50+</div>
+                            <div class="text-[10px] text-gray-400">Products & Services</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-headset text-neon text-lg"></i>
+                        <div>
+                            <div class="text-sm sm:text-base font-black text-white">24/7</div>
+                            <div class="text-[10px] text-gray-400">Support</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-shield-halved text-neon text-lg"></i>
+                        <div>
+                            <div class="text-sm sm:text-base font-black text-white">100%</div>
+                            <div class="text-[10px] text-gray-400">Secure Payments</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branding Watermark / Graphic on the Right of About Box -->
+                <div class="hidden xl:flex flex-col items-center justify-center absolute right-8 bottom-8 text-center pointer-events-none opacity-20">
+                    <i class="fa-solid fa-crown text-5xl text-neon mb-2"></i>
+                    <span class="text-sm font-black tracking-widest text-white">ORO DIGITAL SHOP</span>
+                    <span class="text-[10px] italic text-neon mt-1">Thank you for being a part of our journey ♡</span>
+                </div>
             </div>
-          </div>
 
-          <div id="topTvRow" class="flex items-center gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
-            <div class="text-red-500 font-semibold text-sm py-8"><i class="fa-solid fa-spinner animate-spin"></i> Loading TV Shows...</div>
-          </div>
-        </section>
+            <!-- Contact Us Box (Right Side - Spans 5 cols) -->
+            <div id="contact" class="lg:col-span-5 bg-cardBg border border-borderCol rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-2xl">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-black text-white tracking-wide">Contact Us</h2>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-2 font-medium">Have a question? We are here to help. Reach out to us anytime!</p>
+                    
+                    <!-- Contact Information List Container -->
+                    <div class="mt-6 bg-[#050807] border border-borderCol rounded-2xl p-4 sm:p-5 space-y-4">
+                        
+                        <!-- Telegram Row -->
+                        <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
+                            <div class="text-neon mt-0.5"><i class="fa-brands fa-telegram text-base"></i></div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Owner (Telegram)</div>
+                                <div class="text-xs font-bold text-white mt-0.5">@nuzalireeeh</div>
+                            </div>
+                        </div>
 
-        <!-- MOVIES SECTION -->
-        <section id="moviesSection">
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-              <span class="w-1.5 h-6 bg-red-500 rounded-full"></span> Top Movies
-            </h2>
-            <div class="flex items-center gap-2">
-              <button onclick="scrollRow('topMoviesRow', -300)" class="w-8 h-8 rounded-full bg-slate-800/90 hover:bg-slate-700 text-white flex items-center justify-center transition border border-slate-700">
-                <i class="fa-solid fa-chevron-left text-xs"></i>
-              </button>
-              <button onclick="scrollRow('topMoviesRow', 300)" class="w-8 h-8 rounded-full bg-slate-800/90 hover:bg-slate-700 text-white flex items-center justify-center transition border border-slate-700">
-                <i class="fa-solid fa-chevron-right text-xs"></i>
-              </button>
+                        <!-- Instagram Row (Updated to realwritzz) -->
+                        <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
+                            <div class="text-neon mt-0.5"><i class="fa-brands fa-instagram text-base"></i></div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Instagram ID</div>
+                                <div class="text-xs font-bold text-white mt-0.5">realwritzz</div>
+                            </div>
+                        </div>
+
+                        <!-- Email Row -->
+                        <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
+                            <div class="text-neon mt-0.5"><i class="fa-regular fa-envelope text-base"></i></div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Email</div>
+                                <div class="text-xs font-bold text-white mt-0.5">orodigitalshop@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp Row -->
+                        <div class="flex items-start space-x-3 pb-3 border-b border-borderCol">
+                            <div class="text-neon mt-0.5"><i class="fa-brands fa-whatsapp text-base"></i></div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">WhatsApp</div>
+                                <div class="text-xs font-bold text-white mt-0.5">+91 98765 43210</div>
+                            </div>
+                        </div>
+
+                        <!-- Response Time Row -->
+                        <div class="flex items-start space-x-3">
+                            <div class="text-neon mt-0.5"><i class="fa-regular fa-clock text-base"></i></div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Response Time</div>
+                                <div class="text-xs font-bold text-white mt-0.5">24/7 (Usually within minutes)</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mt-6 text-center text-[11px] text-gray-500">
+                    &copy; 2026 ORO DIGITAL SHOP. All rights reserved.
+                </div>
             </div>
-          </div>
 
-          <div id="topMoviesRow" class="flex items-center gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2">
-            <div class="text-red-500 font-semibold text-sm py-8"><i class="fa-solid fa-spinner animate-spin"></i> Loading Movies...</div>
-          </div>
-        </section>
+        </div>
+    </footer>
 
-        <!-- ABOUT SECTION -->
-        <section id="aboutSection" class="pt-8 border-t border-red-500/20">
-          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-6 mb-6">
+    <!-- Dashboard Modal -->
+    <div id="dashboardModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-2 sm:p-6">
+        <div class="relative w-full max-w-6xl h-[90vh] bg-[#080c0a] border border-borderCol rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+            
+            <button onclick="toggleDashboardModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-cardBg border border-borderCol text-gray-400 hover:text-neon hover:border-neon flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Dashboard Sidebar -->
+            <div class="w-full md:w-72 bg-[#080c0a] border-r border-borderCol p-6 flex flex-col justify-between shrink-0">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3 pb-6 border-b border-borderCol">
+                        <div class="w-12 h-12 rounded-full bg-cardBg border border-borderCol flex items-center justify-center text-neon text-xl font-bold overflow-hidden shadow-[0_0_10px_rgba(0,255,102,0.2)]">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 id="sidebarUsername" class="text-sm font-bold text-white">New User</h4>
+                            <p id="sidebarHandle" class="text-xs text-gray-400">@newuser</p>
+                        </div>
+                    </div>
+
+                    <nav class="space-y-2">
+                        <button onclick="switchDashboardTab('dashboard')" id="tab-dashboard" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-xs transition-all bg-neon text-black shadow-[0_0_15px_rgba(0,255,102,0.3)]">
+                            <i class="fa-solid fa-house text-sm"></i>
+                            <span>Dashboard</span>
+                        </button>
+                        <button onclick="switchDashboardTab('orders')" id="tab-orders" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-gray-300 hover:text-neon hover:bg-cardBg transition-all">
+                            <i class="fa-solid fa-bag-shopping text-sm"></i>
+                            <span>My Orders</span>
+                        </button>
+                        <button onclick="switchDashboardTab('balance')" id="tab-balance" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-gray-300 hover:text-neon hover:bg-cardBg transition-all">
+                            <i class="fa-solid fa-wallet text-sm"></i>
+                            <span>My Balance</span>
+                        </button>
+                        <button onclick="switchDashboardTab('addfund')" id="tab-addfund" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-gray-300 hover:text-neon hover:bg-cardBg transition-all">
+                            <i class="fa-solid fa-circle-plus text-sm"></i>
+                            <span>Add Fund</span>
+                        </button>
+                        <button onclick="switchDashboardTab('contact')" id="tab-contact" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-gray-300 hover:text-neon hover:bg-cardBg transition-all">
+                            <i class="fa-solid fa-headset text-sm"></i>
+                            <span>Contact Owner</span>
+                        </button>
+                        <button onclick="switchDashboardTab('settings')" id="tab-settings" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-gray-300 hover:text-neon hover:bg-cardBg transition-all">
+                            <i class="fa-solid fa-gear text-sm"></i>
+                            <span>Settings</span>
+                        </button>
+                    </nav>
+                </div>
+
+                <div class="pt-4 border-t border-borderCol">
+                    <button onclick="toggleDashboardModal(); showNotification('Logged out successfully');" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-red-400 hover:bg-red-500/10 transition-all">
+                        <i class="fa-solid fa-arrow-right-from-bracket text-sm"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Main Content Area -->
+            <div class="flex-1 bg-[#080c0a] p-6 md:p-8 overflow-y-auto">
+                <div id="content-dashboard" class="space-y-6">
+                    <div>
+                        <h2 class="text-2xl font-black text-white">Dashboard</h2>
+                        <p class="text-xs text-gray-400 mt-1">Welcome back!</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="bg-cardBg border border-borderCol rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-medium">Total Orders</span>
+                                    <h3 id="statTotalOrders" class="text-3xl font-black text-white mt-2">0</h3>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-[#080c0a] border border-borderCol flex items-center justify-center text-neon">
+                                    <i class="fa-solid fa-bag-shopping"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-cardBg border border-borderCol rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-medium">Account Balance</span>
+                                    <h3 id="statBalance" class="text-3xl font-black text-neon mt-2 shadow-[0_0_10px_rgba(0,255,102,0.3)]">₹0</h3>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-[#080c0a] border border-borderCol flex items-center justify-center text-neon shadow-[0_0_10px_rgba(0,255,102,0.3)]">
+                                    <i class="fa-solid fa-wallet"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-cardBg border border-borderCol rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs text-gray-400 font-medium">Pending Add Fund</span>
+                                    <h3 id="statPendingFunds" class="text-3xl font-black text-white mt-2">0</h3>
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-[#080c0a] border border-borderCol flex items-center justify-center text-amber-400">
+                                    <i class="fa-regular fa-clock"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-base font-bold text-white">Recent Orders</h3>
+                            <button onclick="switchDashboardTab('orders')" class="text-neon hover:text-emerald-400 text-xs font-bold flex items-center space-x-1">
+                                <span>View All</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </button>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-borderCol text-[11px] text-gray-400 uppercase tracking-wider">
+                                        <th class="pb-3 font-semibold">Product</th>
+                                        <th class="pb-3 font-semibold">Amount</th>
+                                        <th class="pb-3 font-semibold">Status</th>
+                                        <th class="pb-3 font-semibold">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentOrdersTable" class="divide-y divide-borderCol text-xs">
+                                    <tr>
+                                        <td colspan="4" class="py-8 text-center text-gray-500">No recent orders found.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content-orders" class="hidden space-y-6">
+                    <h2 class="text-2xl font-black text-white">My Orders History</h2>
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 text-center text-gray-400 text-xs py-12">
+                        No orders found. Visit the shop to make your first purchase!
+                    </div>
+                </div>
+
+                <div id="content-balance" class="hidden space-y-6">
+                    <h2 class="text-2xl font-black text-white">My Balance Details</h2>
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6">
+                        <span class="text-xs text-gray-400">Current Balance</span>
+                        <div id="balanceTabAmount" class="text-4xl font-black text-neon mt-2">₹0</div>
+                        <button onclick="showNotification('Redirecting to deposit gateway...')" class="mt-4 bg-neon text-black font-bold text-xs px-6 py-3 rounded-xl">Add Funds Now</button>
+                    </div>
+                </div>
+
+                <div id="content-addfund" class="hidden space-y-6">
+                    <h2 class="text-2xl font-black text-white">Add Fund to Account</h2>
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 space-y-4 max-w-md">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 mb-2">Enter Amount (₹)</label>
+                            <input type="number" placeholder="500" class="w-full bg-[#080c0a] border border-borderCol rounded-xl px-4 py-3 text-xs text-white outline-none focus:border-neon">
+                        </div>
+                        <button onclick="showNotification('Fund deposit request submitted!')" class="w-full bg-neon text-black font-bold text-xs py-3 rounded-xl">Proceed to Pay</button>
+                    </div>
+                </div>
+
+                <div id="content-contact" class="hidden space-y-6">
+                    <h2 class="text-2xl font-black text-white">Contact Store Owner</h2>
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 space-y-4 max-w-lg">
+                        <textarea placeholder="Write your message or inquiry here..." rows="4" class="w-full bg-[#080c0a] border border-borderCol rounded-xl p-4 text-xs text-white outline-none focus:border-neon"></textarea>
+                        <button onclick="showNotification('Message sent to store owner!')" class="bg-neon text-black font-bold text-xs px-6 py-3 rounded-xl">Send Message</button>
+                    </div>
+                </div>
+
+                <div id="content-settings" class="hidden space-y-6">
+                    <h2 class="text-2xl font-black text-white">Account Settings</h2>
+                    <div class="bg-cardBg border border-borderCol rounded-2xl p-6 space-y-4 max-w-md">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 mb-2">Username</label>
+                            <input type="text" id="settingsUsername" value="NewUser" class="w-full bg-[#080c0a] border border-borderCol rounded-xl px-4 py-3 text-xs text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="settingsEmail" value="newuser@oroshop.com" class="w-full bg-[#080c0a] border border-borderCol rounded-xl px-4 py-3 text-xs text-white outline-none">
+                        </div>
+                        <button onclick="showNotification('Settings saved successfully!')" class="bg-neon text-black font-bold text-xs px-6 py-3 rounded-xl">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex justify-end">
+        <div class="w-full max-w-md bg-cardBg h-full border-l border-borderCol p-6 flex flex-col justify-between shadow-2xl">
             <div>
-              <span class="text-[10px] sm:text-xs font-bold text-red-400 uppercase tracking-widest bg-red-950/80 border border-red-800/80 px-3 py-1 rounded-full">Platform Architecture</span>
-              <div class="mt-3 flex items-center gap-3">
-                <h3 class="brand-font text-3xl sm:text-4xl md:text-5xl font-black tracking-wider drop-shadow-md">
-                  About <span class="text-white">Writz</span><span class="text-red-500">Movies</span>
-                </h3>
-              </div>
+                <div class="flex items-center justify-between pb-4 border-b border-borderCol">
+                    <h3 class="text-lg font-black text-white">Your Shopping Cart</h3>
+                    <button onclick="toggleCartModal()" class="w-8 h-8 rounded-full bg-[#050807] border border-borderCol flex items-center justify-center text-gray-400 hover:text-neon">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div id="cartItemsList" class="mt-6 space-y-4 max-h-[60vh] overflow-y-auto"></div>
             </div>
-            <div class="flex items-center gap-2 text-red-400 text-xs md:text-sm font-semibold bg-black/60 px-4 py-2 rounded-lg border border-red-500/20">
-              <i class="fa-solid fa-shield-halved text-red-500"></i> High-Speed Streaming Indexer
-            </div>
-          </div>
 
-          <div class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed space-y-4 max-w-4xl drop-shadow">
-            <p>
-              <strong>WritzMovies</strong> is a high-performance streaming aggregator designed to deliver seamless, uninterrupted digital media indexing. Engineered with dynamic server routing and ultra-responsive layout architecture, our platform organizes thousands of anime, feature films, and television series into an effortlessly navigable interface.
-            </p>
-            <p class="text-slate-400 text-xs sm:text-sm">
-              Featuring dynamic multi-server redundancy, real-time metadata synchronizations, and an adaptive media player, WritzMovies ensures a fluid view-on-demand experience optimized across desktop, tablet, and mobile displays.
-            </p>
-          </div>
-        </section>
-      </div>
+            <div class="pt-4 border-t border-borderCol space-y-4">
+                <div class="flex items-center justify-between text-sm font-bold">
+                    <span class="text-gray-400">Total:</span>
+                    <span id="cartTotal" class="text-neon text-lg">₹0</span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-neon text-black font-black text-xs py-4 rounded-xl hover:bg-emerald-400 transition-all shadow-[0_0_15px_rgba(0,255,102,0.3)]">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- INFINITE SCROLL LIBRARY GRID VIEW -->
-    <div id="libraryView" class="hidden max-w-7xl mx-auto px-4 md:px-6 mb-12">
-      <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
-        <div>
-          <h2 id="libraryTitle" class="brand-font text-2xl md:text-4xl font-black text-white">Anime Library</h2>
-          <p id="librarySub" class="text-xs md:text-sm text-slate-400 mt-1">Scroll down to explore infinitely online.</p>
+    <!-- Support Chat -->
+    <div id="chatModal" class="fixed bottom-24 right-6 z-50 w-80 sm:w-96 bg-cardBg border border-borderCol rounded-2xl shadow-2xl hidden flex flex-col overflow-hidden">
+        <div class="bg-[#050807] px-4 py-3 border-b border-borderCol flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-neon animate-pulse"></span>
+                <span class="text-xs font-bold text-white">ORO Support Assistant</span>
+            </div>
+            <button onclick="toggleChat()" class="text-gray-400 hover:text-neon"><i class="fa-solid fa-xmark"></i></button>
         </div>
-      </div>
-
-      <div id="libraryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
-
-      <!-- INFINITE SCROLL LOADER INDICATOR -->
-      <div id="infiniteLoader" class="text-center py-10 text-red-500 hidden">
-        <i class="fa-solid fa-spinner animate-spin text-2xl mb-2"></i>
-        <p class="text-xs font-semibold text-slate-400">Loading more titles...</p>
-      </div>
+        <div class="p-4 space-y-3 h-64 overflow-y-auto text-xs">
+            <div class="bg-[#050807] border border-borderCol p-3 rounded-xl max-w-[80%] text-gray-300">
+                Hello! Welcome to ORO Digital Shop. How can we assist you with your digital tools today?
+            </div>
+        </div>
+        <div class="p-3 bg-[#050807] border-t border-borderCol flex items-center space-x-2">
+            <input type="text" placeholder="Type your message..." class="flex-1 bg-cardBg border border-borderCol rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-neon">
+            <button onclick="showNotification('Support message sent!')" class="bg-neon text-black px-3 py-2 rounded-xl text-xs font-bold"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
     </div>
 
-  </main>
-
-  <!-- DETAIL & STREAM MODAL -->
-  <div id="detailModal" onclick="if(event.target === this) closeModal()" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
-    <div class="relative glass-panel w-full max-w-4xl max-h-[92vh] rounded-2xl overflow-y-auto shadow-2xl border border-red-500/30 my-auto">
-      <button onclick="closeModal()" class="absolute top-3 right-3 z-30 w-9 h-9 bg-slate-900/90 hover:bg-slate-800 text-white rounded-full flex items-center justify-center transition border border-slate-700">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
-
-      <!-- STREAM PLAYER CONTAINER -->
-      <div id="playerContainer" class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
-        <div id="trailerLoader" class="text-slate-400 text-sm flex flex-col items-center gap-3 text-center px-4">
-          <i class="fa-solid fa-spinner animate-spin text-red-500 text-2xl"></i> 
-          <span id="loaderText">Loading Trailer / Stream...</span>
-        </div>
-        <iframe id="modalTrailer" class="w-full h-full hidden relative z-20" src="" title="Media Stream" frameborder="0" referrerpolicy="no-referrer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
-      </div>
-
-      <!-- SERVER SELECTION BAR (NUMBERS ONLY 1 to 5) -->
-      <div id="serverBar" class="hidden bg-slate-900/90 border-b border-slate-800 px-5 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
-        <div class="flex items-center gap-2 flex-wrap">
-          <span class="text-slate-400 font-bold flex items-center gap-1.5"><i class="fa-solid fa-server text-red-500"></i> Server:</span>
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <button onclick="switchServer(1)" id="srv1" class="wm-btn-primary text-white font-bold px-3.5 py-1 rounded transition">Server 1</button>
-            <button onclick="switchServer(2)" id="srv2" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-3.5 py-1 rounded transition">Server 2</button>
-            <button onclick="switchServer(3)" id="srv3" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-3.5 py-1 rounded transition">Server 3</button>
-            <button onclick="switchServer(4)" id="srv4" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-3.5 py-1 rounded transition">Server 4</button>
-            <button onclick="switchServer(5)" id="srv5" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-3.5 py-1 rounded transition">Server 5</button>
-          </div>
-        </div>
-        <button id="nextEpisodeBtn" onclick="playNextEpisode()" class="hidden wm-btn-primary text-white font-bold px-3.5 py-1.5 rounded-lg text-xs transition flex items-center gap-1.5 shadow">
-          <span>Next Episode</span> <i class="fa-solid fa-forward"></i>
+    <div class="fixed bottom-6 right-6 z-30">
+        <button onclick="toggleChat()" class="bg-cardBg border border-borderCol hover:border-neon text-white px-4 py-3 rounded-full shadow-2xl flex items-center space-x-3 transition-all group">
+            <div class="w-8 h-8 rounded-full bg-neon text-black flex items-center justify-center font-bold shadow-[0_0_10px_rgba(0,255,102,0.5)]">
+                <i class="fa-solid fa-headset text-sm"></i>
+            </div>
+            <div class="text-left pr-2">
+                <div class="text-[10px] text-gray-400 font-medium">Need Help?</div>
+                <div class="text-xs font-bold text-white group-hover:text-neon transition-colors">Chat with us</div>
+            </div>
         </button>
-      </div>
-
-      <!-- TV / ANIME SEASONS / EPISODES -->
-      <div id="tvEpisodesSection" class="hidden bg-slate-900/80 border-b border-slate-800 p-4">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-          <div class="flex items-center gap-3 flex-wrap">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-list text-red-500 text-sm"></i>
-              <span class="text-white text-xs font-bold uppercase tracking-wider">Select Episode</span>
-            </div>
-            <div id="playingEpisodeBanner" class="hidden bg-red-950/90 border border-red-500/50 text-red-400 font-bold px-2.5 py-1 rounded-lg text-xs flex items-center gap-1.5 shadow">
-              <i class="fa-solid fa-play text-[10px] animate-pulse"></i>
-              <span id="playingEpisodeText">NOW WATCHING: S1 E1</span>
-            </div>
-          </div>
-          <div id="seasonContainer" class="flex items-center gap-2">
-            <label class="text-xs text-slate-400 font-medium">Season:</label>
-            <select id="seasonSelect" onchange="loadSeasonEpisodes()" class="bg-slate-800 text-white text-xs font-bold rounded px-2.5 py-1 border border-slate-700 focus:outline-none focus:border-red-500 cursor-pointer"></select>
-          </div>
-        </div>
-        <div id="episodesList" class="flex gap-2 overflow-x-auto pb-2 max-h-36 flex-wrap no-scrollbar"></div>
-      </div>
-
-      <!-- MEDIA DETAILS -->
-      <div class="p-5 md:p-8">
-        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
-          <div>
-            <span id="modalType" class="text-[10px] font-extrabold uppercase tracking-wider text-red-400 bg-red-950/80 border border-red-800/80 px-2.5 py-1 rounded">STREAM</span>
-            <h3 id="modalTitle" class="text-xl md:text-3xl font-bold text-white mt-1.5">Title</h3>
-          </div>
-          <div class="flex items-center gap-3 text-xs md:text-sm">
-            <span id="modalRating" class="text-red-400 font-bold flex items-center gap-1"><i class="fa-solid fa-star"></i> 0.0</span>
-            <span id="modalYear" class="text-slate-400">2026</span>
-            <span class="bg-slate-800 text-slate-300 text-[10px] md:text-xs px-2 py-0.5 rounded border border-slate-700">4K ULTRA HD</span>
-          </div>
-        </div>
-        <p id="modalDescription" class="text-slate-300 text-xs md:text-sm mb-6 leading-relaxed">Description</p>
-        <div class="mb-8">
-          <button id="mainPlayBtn" onclick="startStream(1)" class="w-full wm-btn-primary text-white font-black text-base md:text-lg py-3.5 px-8 rounded-xl flex items-center justify-center gap-3 transition transform active:scale-95 cursor-pointer">
-            <i class="fa-solid fa-play text-lg"></i> PLAY STREAM NOW
-          </button>
-        </div>
-        <div id="castContainer" class="pt-6 border-t border-slate-800/80">
-          <h4 class="text-sm md:text-base font-bold uppercase tracking-wider text-red-500 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-users text-lg"></i> Cast & Crew
-          </h4>
-          <div id="castList" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[380px] overflow-y-auto pr-2">
-            <span class="text-slate-500 text-xs col-span-full">Loading cast...</span>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <footer class="w-full py-6 border-t border-slate-900 bg-[#05070a] text-center">
-    <p class="text-xs text-slate-500 font-medium tracking-wide">WritzMovies © 2015 - 2026 | Streaming Indexer</p>
-  </footer>
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="fixed top-28 right-6 z-50 transform translate-x-[120%] transition-transform duration-300 ease-out bg-cardBg border border-neon text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-neon text-xl"></i>
+        <div>
+            <h4 class="text-xs font-bold text-neon">Notification</h4>
+            <p id="toastMessage" class="text-xs text-gray-300"></p>
+        </div>
+    </div>
 
-  <script>
-    const TMDB_KEY = "e15be33701bb1a97defdc01b86af2ed9"; 
-    const FALLBACK_POSTER = "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500&auto=format&fit=crop";
+    <script>
+        let cart = [];
+        let toastTimeout = null;
 
-    let activeMedia = { id: null, type: 'tv', title: '' };
-    let selectedSeason = 1;
-    let selectedEpisode = 1;
-    let totalSeasonEpisodes = 1;
-    let searchDebounce = null;
-    let currentServer = 1;
-    let heroRotationItems = [];
-    let heroIndex = 0;
-    let heroTimer = null;
+        // View switching logic to separate Homepage from Shop/Categories
+        function switchView(viewName) {
+            const homeView = document.getElementById('homeView');
+            const shopView = document.getElementById('shopView');
 
-    let currentLibraryType = 'anime';
-    let currentLibraryPage = 1;
-    let isFetchingLibrary = false;
-    let hasMorePages = true;
-
-    const apiCache = new Map();
-
-    async function fetchWithCache(url) {
-      if (apiCache.has(url)) return apiCache.get(url);
-      const res = await fetch(url);
-      if (!res.ok) throw new Error("Fetch failed");
-      const data = await res.json();
-      apiCache.set(url, data);
-      return data;
-    }
-
-    function acceptTerms() {
-      const modal = document.getElementById('termsModal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.style.display = 'none';
-      }
-      document.body.style.overflow = 'auto';
-      localStorage.setItem('writz_terms_accepted', 'true');
-    }
-
-    function checkTermsAccepted() {
-      const accepted = localStorage.getItem('writz_terms_accepted');
-      if (accepted === 'true') {
-        const modal = document.getElementById('termsModal');
-        if (modal) {
-          modal.classList.add('hidden');
-          modal.style.display = 'none';
-        }
-        document.body.style.overflow = 'auto';
-      }
-    }
-
-    function triggerLogoClick() {
-      showHomeView();
-      const banner = document.getElementById('feedbackBanner');
-      if (banner) banner.classList.remove('hidden');
-    }
-
-    function cleanStr(str) {
-      if(!str) return "";
-      return String(str).replace(/'/g, "&#39;").replace(/"/g, "&quot;");
-    }
-
-    function getPosterUrl(path) {
-      if (path && path !== "null" && path !== "undefined") {
-        return `https://image.tmdb.org/t/p/w500${path}`;
-      }
-      return FALLBACK_POSTER;
-    }
-
-    function showHomeView() {
-      document.getElementById('homeView').classList.remove('hidden');
-      document.getElementById('libraryView').classList.add('hidden');
-      
-      document.getElementById('tabHome').className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition wm-btn-primary text-white shadow";
-      document.getElementById('tabAnime').className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white";
-      document.getElementById('tabMovies').className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white";
-      document.getElementById('tabTv').className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white";
-    }
-
-    function showLibraryView(type) {
-      currentLibraryType = type;
-      currentLibraryPage = 1;
-      hasMorePages = true;
-      isFetchingLibrary = false;
-
-      document.getElementById('homeView').classList.add('hidden');
-      document.getElementById('libraryView').classList.remove('hidden');
-      document.getElementById('libraryGrid').innerHTML = '';
-
-      const btnActive = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition wm-btn-primary text-white shadow";
-      const btnInactive = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white";
-
-      document.getElementById('tabHome').className = btnInactive;
-      document.getElementById('tabAnime').className = type === 'anime' ? btnActive : btnInactive;
-      document.getElementById('tabMovies').className = type === 'movie' ? btnActive : btnInactive;
-      document.getElementById('tabTv').className = type === 'tv' ? btnActive : btnInactive;
-
-      if (type === 'anime') {
-        document.getElementById('libraryTitle').innerText = "Anime Library";
-        document.getElementById('librarySub').innerText = "Scroll down to explore all anime series.";
-      } else if (type === 'movie') {
-        document.getElementById('libraryTitle').innerText = "Movies Library";
-        document.getElementById('librarySub').innerText = "Scroll down to explore all movies online.";
-      } else {
-        document.getElementById('libraryTitle').innerText = "TV Shows Library";
-        document.getElementById('librarySub').innerText = "Scroll down to explore all TV series online.";
-      }
-
-      loadNextLibraryBatch();
-    }
-
-    async function loadNextLibraryBatch() {
-      if (isFetchingLibrary || !hasMorePages) return;
-      isFetchingLibrary = true;
-
-      const loader = document.getElementById('infiniteLoader');
-      loader.classList.remove('hidden');
-
-      let url = "";
-      if (currentLibraryType === 'anime') {
-        url = `https://api.themoviedb.org/3/discover/tv?api_key=${TMDB_KEY}&with_genres=16&include_adult=false&sort_by=popularity.desc&page=${currentLibraryPage}`;
-      } else if (currentLibraryType === 'movie') {
-        url = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&include_adult=false&sort_by=popularity.desc&page=${currentLibraryPage}`;
-      } else {
-        url = `https://api.themoviedb.org/3/discover/tv?api_key=${TMDB_KEY}&include_adult=false&sort_by=popularity.desc&page=${currentLibraryPage}`;
-      }
-
-      try {
-        const data = await fetchWithCache(url);
-        if (data && data.results && data.results.length > 0) {
-          appendLibraryGrid(data.results, currentLibraryType === 'movie' ? 'movie' : 'tv');
-          
-          if (currentLibraryPage >= data.total_pages) {
-            hasMorePages = false;
-          } else {
-            currentLibraryPage++;
-          }
-        } else {
-          hasMorePages = false;
-        }
-      } catch(e) {
-        console.error("Library fetch error:", e);
-      } finally {
-        isFetchingLibrary = false;
-        loader.classList.add('hidden');
-      }
-    }
-
-    function appendLibraryGrid(items, type) {
-      const grid = document.getElementById('libraryGrid');
-      const fragment = document.createDocumentFragment();
-
-      items.forEach(item => {
-        const title = item.title || item.name || "Untitled";
-        const year = (item.release_date || item.first_air_date || '2026').substring(0, 4);
-        const rating = item.vote_average ? item.vote_average.toFixed(1) : "N/A";
-        const posterUrl = getPosterUrl(item.poster_path);
-
-        const card = document.createElement('div');
-        card.className = "group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800 transition duration-300 transform hover:-translate-y-2 cursor-pointer wm-card-glow active:scale-95 flex flex-col justify-between";
-        card.onclick = () => openModal(item.id, type);
-
-        card.innerHTML = `
-          <div class="aspect-[2/3] w-full overflow-hidden relative bg-slate-950">
-            <img src="${posterUrl}" onerror="this.onerror=null; this.src='${FALLBACK_POSTER}';" alt="${cleanStr(title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute top-2 right-2 bg-black/80 backdrop-blur-md text-xs font-bold text-red-400 px-2 py-0.5 rounded flex items-center gap-1">
-              <i class="fa-solid fa-star text-[10px]"></i> ${rating}
-            </div>
-          </div>
-          <div class="p-3 flex-grow flex flex-col justify-between">
-            <h3 class="text-xs sm:text-sm font-bold text-white truncate group-hover:text-red-500 transition">${cleanStr(title)}</h3>
-            <p class="text-[10px] sm:text-xs text-slate-400 mt-1">${year}</p>
-          </div>
-        `;
-        fragment.appendChild(card);
-      });
-
-      grid.appendChild(fragment);
-    }
-
-    window.addEventListener('scroll', () => {
-      const libraryView = document.getElementById('libraryView');
-      if (libraryView && !libraryView.classList.contains('hidden')) {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-        if (scrollTop + clientHeight >= scrollHeight - 700) {
-          loadNextLibraryBatch();
-        }
-      }
-    });
-
-    async function loadTop10Anime() {
-      const container = document.getElementById('topAnimeRow');
-      container.innerHTML = `<div class="text-red-500 font-semibold text-sm py-8"><i class="fa-solid fa-spinner animate-spin"></i> Loading Anime...</div>`;
-
-      try {
-        const opData = await fetchWithCache(`https://api.themoviedb.org/3/tv/37854?api_key=${TMDB_KEY}`);
-        const data = await fetchWithCache(`https://api.themoviedb.org/3/discover/tv?api_key=${TMDB_KEY}&with_genres=16&include_adult=false&sort_by=popularity.desc&page=1`);
-        
-        let animeList = [];
-        if (opData && opData.id) animeList.push(opData);
-
-        if (data && data.results) {
-          const fetchedAnime = data.results.filter(item => item.id !== 37854);
-          animeList = animeList.concat(fetchedAnime);
+            if (viewName === 'shop') {
+                homeView.classList.add('hidden');
+                shopView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                shopView.classList.add('hidden');
+                homeView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
-        const finalAnime = animeList.slice(0, 10);
-        renderHorizontalRow(finalAnime, 'topAnimeRow', 'tv');
-        
-        heroRotationItems = finalAnime;
-        if (heroRotationItems.length > 0) {
-          setupHero(heroRotationItems[0]);
-          if (heroTimer) clearInterval(heroTimer);
-          heroTimer = setInterval(rotateHeroBanner, 7000);
-        }
-      } catch (err) {
-        container.innerHTML = `<div class="text-red-500 text-sm py-6">Failed to load anime.</div>`;
-      }
-    }
-
-    async function loadTop10TvShows() {
-      const container = document.getElementById('topTvRow');
-      container.innerHTML = `<div class="text-red-500 font-semibold text-sm py-8"><i class="fa-solid fa-spinner animate-spin"></i> Loading TV Shows...</div>`;
-
-      try {
-        const mentalistData = await fetchWithCache(`https://api.themoviedb.org/3/tv/5920?api_key=${TMDB_KEY}`);
-        const data = await fetchWithCache(`https://api.themoviedb.org/3/trending/tv/week?api_key=${TMDB_KEY}&include_adult=false`);
-
-        let tvList = [];
-        if (mentalistData && mentalistData.id) tvList.push(mentalistData);
-
-        if (data && data.results) {
-          const nonAnimeTv = data.results.filter(item => item.id !== 5920 && !(item.genre_ids && item.genre_ids.includes(16)));
-          tvList = tvList.concat(nonAnimeTv);
-        }
-
-        renderHorizontalRow(tvList.slice(0, 10), 'topTvRow', 'tv');
-      } catch (err) {
-        container.innerHTML = `<div class="text-red-500 text-sm py-6">Failed to load TV shows.</div>`;
-      }
-    }
-
-    async function loadTop10Movies() {
-      const container = document.getElementById('topMoviesRow');
-      container.innerHTML = `<div class="text-red-500 font-semibold text-sm py-8"><i class="fa-solid fa-spinner animate-spin"></i> Loading Movies...</div>`;
-
-      try {
-        let brandNewDay = null;
-        try {
-          const searchM = await fetchWithCache(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&query=Brand%20New%20Day`);
-          if (searchM && searchM.results && searchM.results.length > 0) {
-            brandNewDay = searchM.results[0];
-          }
-        } catch(e) {}
-
-        const data = await fetchWithCache(`https://api.themoviedb.org/3/trending/movie/week?api_key=${TMDB_KEY}&include_adult=false`);
-        let movieList = [];
-        
-        if (brandNewDay) movieList.push(brandNewDay);
-
-        if (data && data.results) {
-          const movies = data.results.filter(item => (!brandNewDay || item.id !== brandNewDay.id));
-          movieList = movieList.concat(movies);
-        }
-
-        renderHorizontalRow(movieList.slice(0, 10), 'topMoviesRow', 'movie');
-      } catch (err) {
-        container.innerHTML = `<div class="text-red-500 text-sm py-6">Failed to load movies.</div>`;
-      }
-    }
-
-    function renderHorizontalRow(items, targetContainerId, mediaType) {
-      const container = document.getElementById(targetContainerId);
-      container.innerHTML = '';
-      const fragment = document.createDocumentFragment();
-
-      items.forEach((item, index) => {
-        const title = item.title || item.name || "Untitled";
-        const year = (item.release_date || item.first_air_date || '2026').substring(0, 4);
-        const rating = item.vote_average ? item.vote_average.toFixed(1) : "N/A";
-        const posterUrl = getPosterUrl(item.poster_path);
-
-        const card = document.createElement('div');
-        card.className = "flex-none w-40 sm:w-48 group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800 transition duration-300 transform hover:-translate-y-2 cursor-pointer wm-card-glow active:scale-95";
-        card.onclick = () => openModal(item.id, mediaType);
-
-        card.innerHTML = `
-          <div class="aspect-[2/3] w-full overflow-hidden relative bg-slate-950">
-            <img src="${posterUrl}" onerror="this.onerror=null; this.src='${FALLBACK_POSTER}';" alt="${cleanStr(title)}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute top-2 left-2 bg-red-600 text-white font-black text-xs px-2 py-0.5 rounded shadow">
-              #${index + 1}
-            </div>
-            <div class="absolute top-2 right-2 bg-black/80 backdrop-blur-md text-xs font-bold text-red-400 px-2 py-0.5 rounded flex items-center gap-1">
-              <i class="fa-solid fa-star text-[10px]"></i> ${rating}
-            </div>
-          </div>
-          <div class="p-3">
-            <h3 class="text-xs sm:text-sm font-bold text-white truncate group-hover:text-red-500 transition">${cleanStr(title)}</h3>
-            <p class="text-[10px] sm:text-xs text-slate-400 mt-1">${year}</p>
-          </div>
-        `;
-        fragment.appendChild(card);
-      });
-
-      container.appendChild(fragment);
-    }
-
-    function scrollRow(elementId, amount) {
-      const container = document.getElementById(elementId);
-      if (container) container.scrollBy({ left: amount, behavior: 'smooth' });
-    }
-
-    function rotateHeroBanner() {
-      if (!heroRotationItems || heroRotationItems.length === 0) return;
-      heroIndex = (heroIndex + 1) % heroRotationItems.length;
-      setupHero(heroRotationItems[heroIndex]);
-    }
-
-    function setupHero(item) {
-      if (!item) return;
-      const title = item.title || item.name || "Featured Media";
-      const desc = item.overview || "No overview available.";
-      
-      const posterEl = document.getElementById('hero-poster');
-      let backdrop = item.backdrop_path ? `https://image.tmdb.org/t/p/original${item.backdrop_path}` : getPosterUrl(item.poster_path);
-
-      document.getElementById('heroTitle').innerText = title;
-      document.getElementById('heroDesc').innerText = desc;
-      if (posterEl) posterEl.src = backdrop;
-
-      const mediaType = (item.title) ? 'movie' : 'tv';
-      document.getElementById('heroPlayBtn').onclick = () => openModal(item.id, mediaType);
-    }
-
-    function debounceSearch() {
-      clearTimeout(searchDebounce);
-      searchDebounce = setTimeout(performSearch, 300);
-    }
-
-    async function performSearch() {
-      const query = document.getElementById('searchInput').value.trim();
-      if (!query) {
-        showHomeView();
-        loadTop10Anime();
-        loadTop10Movies();
-        loadTop10TvShows();
-        return;
-      }
-
-      showHomeView();
-      const animeContainer = document.getElementById('topAnimeRow');
-      animeContainer.innerHTML = `<div class="text-red-500 text-sm py-8"><i class="fa-solid fa-spinner animate-spin"></i> Searching "${query}"...</div>`;
-
-      try {
-        const data = await fetchWithCache(`https://api.themoviedb.org/3/search/multi?api_key=${TMDB_KEY}&query=${encodeURIComponent(query)}&include_adult=false`);
-        
-        if (data.results && data.results.length > 0) {
-          renderHorizontalRow(data.results.slice(0, 10), 'topAnimeRow', 'tv');
-        } else {
-          animeContainer.innerHTML = `<div class="text-slate-500 text-sm py-6">No results found for "${query}".</div>`;
-        }
-      } catch (err) {
-        animeContainer.innerHTML = `<div class="text-red-500 text-sm py-6">Search error.</div>`;
-      }
-    }
-
-    async function fetchCastInfo(id, endpoint) {
-      const castList = document.getElementById('castList');
-      castList.innerHTML = `<span class="text-slate-500 text-xs col-span-full py-4"><i class="fa-solid fa-spinner animate-spin text-red-500"></i> Loading cast...</span>`;
-
-      try {
-        const data = await fetchWithCache(`https://api.themoviedb.org/3/${endpoint}/${id}/credits?api_key=${TMDB_KEY}`);
-
-        if (data.cast && data.cast.length > 0) {
-          const fragment = document.createDocumentFragment();
-          castList.innerHTML = '';
-          data.cast.slice(0, 8).forEach(actor => {
-            const profilePic = getPosterUrl(actor.profile_path);
+        function showNotification(message) {
+            const toast = document.getElementById('notificationToast');
+            const toastMsg = document.getElementById('toastMessage');
             
-            const castCard = document.createElement('div');
-            castCard.className = "group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg hover:border-red-500/60 transition duration-300";
+            if (toastTimeout) {
+                clearTimeout(toastTimeout);
+                toastTimeout = null;
+            }
+
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-x-[120%]');
+            toast.classList.add('translate-x-0');
+
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-x-0');
+                toast.classList.add('translate-x-[120%]');
+            }, 3000);
+        }
+
+        function setActiveNav(element) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-neon', 'font-bold');
+                link.classList.add('text-gray-300');
+            });
+            element.classList.remove('text-gray-300');
+            element.classList.add('text-neon', 'font-bold');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('hidden');
+            renderCart();
+        }
+
+        function toggleDashboardModal() {
+            const modal = document.getElementById('dashboardModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function switchDashboardTab(tabId) {
+            const tabs = ['dashboard', 'orders', 'balance', 'addfund', 'contact', 'settings'];
+            tabs.forEach(t => {
+                const content = document.getElementById(`content-${t}`);
+                const tabBtn = document.getElementById(`tab-${t}`);
+                if (t === tabId) {
+                    content.classList.remove('hidden');
+                    tabBtn.className = "w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-bold text-xs transition-all bg-neon text-black shadow-[0_0_15px_rgba(0,255,102,0.3)]";
+                } else {
+                    content.classList.add('hidden');
+                    tabBtn.className = "w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium text-xs text-gray-300 hover:text-neon hover:bg-cardBg transition-all";
+                }
+            });
+        }
+
+        function toggleChat() {
+            const chat = document.getElementById('chatModal');
+            chat.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartBadge();
+            showNotification(`${name} added to cart!`);
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCartBadge();
+            renderCart();
+            showNotification(`Removed item from cart.`);
+        }
+
+        function updateCartBadge() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartBadge').textContent = totalItems;
+        }
+
+        function renderCart() {
+            const listContainer = document.getElementById('cartItemsList');
+            const totalContainer = document.getElementById('cartTotal');
             
-            castCard.innerHTML = `
-              <div class="aspect-[3/4] w-full overflow-hidden bg-slate-950 relative">
-                <img src="${profilePic}" onerror="this.onerror=null; this.src='${FALLBACK_POSTER}';" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="${cleanStr(actor.name)}" loading="lazy" />
-              </div>
-              <div class="p-2 text-left">
-                <p class="text-white text-xs font-bold truncate group-hover:text-red-500 transition">${cleanStr(actor.name)}</p>
-                <p class="text-slate-400 text-[10px] truncate mt-0.5">${cleanStr(actor.character) || 'Cast'}</p>
-              </div>
-            `;
-            fragment.appendChild(castCard);
-          });
-          castList.appendChild(fragment);
-        } else {
-          castList.innerHTML = `<span class="text-slate-500 text-xs col-span-full py-4">No cast details found.</span>`;
+            if (cart.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="text-center text-gray-500 py-12">
+                        <i class="fa-solid fa-cart-arrow-down text-4xl mb-3 text-gray-600"></i>
+                        <p class="text-sm">Your cart is currently empty.</p>
+                    </div>`;
+                totalContainer.textContent = '₹0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                html += `
+                    <div class="bg-[#080c0a] border border-borderCol rounded-xl p-3 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-xs font-bold text-white">${item.name}</h4>
+                            <p class="text-[11px] text-gray-400">₹${item.price} x ${item.qty}</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xs font-bold text-neon">₹${item.price * item.qty}</span>
+                            <button onclick="removeFromCart('${item.name}')" class="text-gray-500 hover:text-red-400 text-xs">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>`;
+            });
+
+            listContainer.innerHTML = html;
+            totalContainer.textContent = `₹${total}`;
         }
-      } catch (e) {
-        castList.innerHTML = `<span class="text-slate-500 text-xs col-span-full py-4">Failed to load cast.</span>`;
-      }
-    }
 
-    async function fetchTrailerKey(id, mediaEndpoint) {
-      try {
-        let data = await fetchWithCache(`https://api.themoviedb.org/3/${mediaEndpoint}/${id}/videos?api_key=${TMDB_KEY}`);
-        let videos = (data && data.results) ? data.results : [];
-
-        if (videos.length > 0) {
-          const youtubeVideos = videos.filter(v => v.site === 'YouTube');
-          const officialTrailer = youtubeVideos.find(v => v.type === 'Trailer') || youtubeVideos[0];
-          if (officialTrailer) return officialTrailer.key;
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+            showNotification('Redirecting to secure payment gateway...');
+            setTimeout(() => {
+                cart = [];
+                updateCartBadge();
+                toggleCartModal();
+                showNotification('Order placed successfully! Check your email.');
+            }, 1500);
         }
-      } catch (e) {}
-      return null;
-    }
 
-    async function openModal(id, mediaEndpoint = 'tv') {
-      document.body.style.overflow = 'hidden';
+        function filterCategory(category) {
+            switchView('shop');
 
-      let item = null;
-      try {
-        item = await fetchWithCache(`https://api.themoviedb.org/3/${mediaEndpoint}/${id}?api_key=${TMDB_KEY}`);
-      } catch(e) {}
+            const categories = ['All', 'Instagram', 'Social Media', 'Gaming', 'Custom'];
+            categories.forEach(cat => {
+                const btn = document.getElementById(`cat-btn-${cat}`);
+                if (btn) {
+                    if (cat === category) {
+                        btn.className = "w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-bold bg-neon/15 text-neon border border-neon/40 transition-all shadow-[0_0_10px_rgba(0,255,102,0.15)]";
+                    } else {
+                        btn.className = "w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-neon hover:bg-[#050807] transition-all";
+                    }
+                }
+            });
 
-      let title = item ? (item.title || item.name || "Untitled") : "Title";
-      const desc = item ? (item.overview || "No description available.") : "No description available.";
-      const rating = item && item.vote_average ? item.vote_average.toFixed(1) : "N/A";
-      const year = item ? (item.release_date || item.first_air_date || '2026').substring(0, 4) : "2026";
-
-      activeMedia = { id: id, type: mediaEndpoint, title: title };
-      selectedSeason = 1;
-      selectedEpisode = 1;
-
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalType').innerText = (mediaEndpoint === 'tv') ? 'TV / ANIME' : 'MOVIE';
-      document.getElementById('modalRating').innerHTML = `<i class="fa-solid fa-star"></i> ${rating}`;
-      document.getElementById('modalYear').innerText = year;
-      document.getElementById('modalDescription').innerText = desc;
-      document.getElementById('serverBar').classList.add('hidden');
-      document.getElementById('playingEpisodeBanner').classList.add('hidden');
-      document.getElementById('nextEpisodeBtn').classList.add('hidden');
-
-      fetchCastInfo(id, mediaEndpoint);
-
-      const tvSection = document.getElementById('tvEpisodesSection');
-      if (mediaEndpoint === 'tv') {
-        tvSection.classList.remove('hidden');
-        await fetchTvDetailsAndSeasons(id);
-      } else {
-        tvSection.classList.add('hidden');
-      }
-
-      const modal = document.getElementById('detailModal');
-      const trailerFrame = document.getElementById('modalTrailer');
-      const loader = document.getElementById('trailerLoader');
-
-      trailerFrame.classList.add('hidden');
-      trailerFrame.src = "";
-      loader.classList.remove('hidden');
-      document.getElementById('loaderText').innerText = "Loading Trailer...";
-      
-      modal.classList.remove('hidden');
-
-      const videoKey = await fetchTrailerKey(id, mediaEndpoint);
-
-      if (videoKey) {
-        trailerFrame.src = `https://www.youtube.com/embed/${videoKey}?autoplay=1&rel=0`;
-        trailerFrame.classList.remove('hidden');
-        loader.classList.add('hidden');
-      } else {
-        loader.innerHTML = `
-          <div class="flex flex-col items-center gap-2">
-            <i class="fa-solid fa-film text-3xl text-slate-600"></i>
-            <span class="text-sm text-slate-300 font-bold">Trailer Unavailable</span>
-            <span class="text-xs text-slate-500">Click "PLAY STREAM NOW" below to start watching.</span>
-          </div>
-        `;
-      }
-    }
-
-    async function fetchTvDetailsAndSeasons(tvId) {
-      const seasonContainer = document.getElementById('seasonContainer');
-      const seasonSelect = document.getElementById('seasonSelect');
-
-      try {
-        const data = await fetchWithCache(`https://api.themoviedb.org/3/tv/${tvId}?api_key=${TMDB_KEY}`);
-
-        seasonContainer.classList.remove('hidden');
-        seasonSelect.innerHTML = '';
-        if (data.seasons && data.seasons.length > 0) {
-          const validSeasons = data.seasons.filter(s => s.season_number >= 0 && s.episode_count > 0);
-          validSeasons.forEach(s => {
-            const option = document.createElement('option');
-            option.value = s.season_number;
-            const seasonLabel = s.season_number === 0 ? "Specials" : `Season ${s.season_number}`;
-            option.innerText = `${seasonLabel} (${s.episode_count} Ep)`;
-            seasonSelect.appendChild(option);
-          });
-        } else {
-          seasonSelect.innerHTML = `<option value="1">Season 1</option>`;
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'All' || cardCategory === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            showNotification(category === 'All' ? 'Showing all products' : `Filtered category: ${category}`);
         }
-        selectedSeason = Number(seasonSelect.value) || 1;
-        selectedEpisode = 1;
-        await loadSeasonEpisodes();
-      } catch (e) {
-        seasonSelect.innerHTML = `<option value="1">Season 1</option>`;
-        selectedSeason = 1;
-        selectedEpisode = 1;
-        await loadSeasonEpisodes();
-      }
-    }
 
-    async function loadSeasonEpisodes() {
-      selectedSeason = Number(document.getElementById('seasonSelect').value) || 1;
-      const episodesList = document.getElementById('episodesList');
-      episodesList.innerHTML = `<div class="text-red-500 text-xs py-2"><i class="fa-solid fa-spinner animate-spin"></i> Fetching episodes...</div>`;
-
-      try {
-        const data = await fetchWithCache(`https://api.themoviedb.org/3/tv/${activeMedia.id}/season/${selectedSeason}?api_key=${TMDB_KEY}`);
-
-        episodesList.innerHTML = '';
-        if (data.episodes && data.episodes.length > 0) {
-          totalSeasonEpisodes = data.episodes.length;
-          selectedEpisode = Number(data.episodes[0].episode_number);
-
-          const fragment = document.createDocumentFragment();
-          data.episodes.forEach((ep, idx) => {
-            const epNum = Number(ep.episode_number);
-            const isSelected = (idx === 0);
-            const epBtn = document.createElement('button');
-            epBtn.className = `ep-btn text-xs font-semibold px-3 py-2 rounded-lg border text-left transition flex items-center gap-2 truncate max-w-[210px] cursor-pointer ${
-              isSelected ? 'wm-btn-primary border-red-500 text-white font-bold' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
-            }`;
-            epBtn.id = `epBtn_${epNum}`;
-            epBtn.setAttribute('data-epnum', epNum);
-            epBtn.onclick = () => selectEpisode(epNum);
-
-            epBtn.innerHTML = `
-              <span class="bg-black/40 px-1.5 py-0.5 rounded text-[10px] text-red-400">E${epNum}</span>
-              <span class="truncate">${cleanStr(ep.name) || 'Episode ' + epNum}</span>
-            `;
-            fragment.appendChild(epBtn);
-          });
-          episodesList.appendChild(fragment);
-        } else {
-          renderFallbackEpisodes(24);
+        function handleSearch(e) {
+            switchView('shop');
+            
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                if (name.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
-      } catch (err) {
-        renderFallbackEpisodes(24);
-      }
-    }
-
-    function renderFallbackEpisodes(count = 24) {
-      const episodesList = document.getElementById('episodesList');
-      episodesList.innerHTML = '';
-      totalSeasonEpisodes = count;
-      selectedEpisode = 1;
-
-      const fragment = document.createDocumentFragment();
-      for (let i = 1; i <= count; i++) {
-        const epBtn = document.createElement('button');
-        epBtn.className = `ep-btn text-xs font-semibold px-3 py-2 rounded-lg border text-left transition flex items-center gap-2 truncate max-w-[210px] cursor-pointer ${
-          i === 1 ? 'wm-btn-primary border-red-500 text-white font-bold' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
-        }`;
-        epBtn.id = `epBtn_${i}`;
-        epBtn.setAttribute('data-epnum', i);
-        epBtn.onclick = () => selectEpisode(i);
-
-        epBtn.innerHTML = `
-          <span class="bg-black/40 px-1.5 py-0.5 rounded text-[10px] text-red-400">E${i}</span>
-          <span class="truncate">Episode ${i}</span>
-        `;
-        fragment.appendChild(epBtn);
-      }
-      episodesList.appendChild(fragment);
-    }
-
-    function selectEpisode(epNum) {
-      selectedEpisode = Number(epNum);
-      document.querySelectorAll('.ep-btn').forEach(btn => {
-        btn.className = "ep-btn text-xs font-semibold px-3 py-2 rounded-lg border text-left transition flex items-center gap-2 truncate max-w-[210px] bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700 cursor-pointer";
-      });
-      const activeBtn = document.getElementById(`epBtn_${epNum}`);
-      if (activeBtn) activeBtn.className = "ep-btn text-xs font-semibold px-3 py-2 rounded-lg border text-left transition flex items-center gap-2 truncate max-w-[210px] wm-btn-primary border-red-500 text-white font-bold cursor-pointer";
-      startStream(currentServer);
-    }
-
-    function playNextEpisode() {
-      const epButtons = Array.from(document.querySelectorAll('.ep-btn'));
-      const currentIndex = epButtons.findIndex(btn => Number(btn.getAttribute('data-epnum')) === Number(selectedEpisode));
-      
-      if (currentIndex !== -1 && currentIndex < epButtons.length - 1) {
-        const nextEpNum = Number(epButtons[currentIndex + 1].getAttribute('data-epnum'));
-        selectEpisode(nextEpNum);
-      }
-    }
-
-    async function startStream(serverNum = 1) {
-      if (!activeMedia.id) return;
-      currentServer = serverNum;
-
-      let effectiveSeason = selectedSeason;
-      let effectiveEpisode = selectedEpisode;
-
-      const trailerFrame = document.getElementById('modalTrailer');
-      const loader = document.getElementById('trailerLoader');
-      const serverBar = document.getElementById('serverBar');
-      const banner = document.getElementById('playingEpisodeBanner');
-      const bannerText = document.getElementById('playingEpisodeText');
-      const nextBtn = document.getElementById('nextEpisodeBtn');
-
-      serverBar.classList.remove('hidden');
-      updateServerButtons(serverNum);
-
-      const isMovie = (activeMedia.type === 'movie');
-
-      if (!isMovie) {
-        banner.classList.remove('hidden');
-        bannerText.innerText = `NOW WATCHING: S${selectedSeason} E${selectedEpisode}`;
-        nextBtn.classList.remove('hidden');
-      } else {
-        banner.classList.add('hidden');
-        nextBtn.classList.add('hidden');
-      }
-
-      let streamUrl = "";
-
-      // UPDATED SERVERS 1 TO 5 (ACTIVE EMBED MIRRORS)
-      if (serverNum === 1) {
-        streamUrl = isMovie 
-          ? `https://vidsrc.sh/embed/movie/${activeMedia.id}`
-          : `https://vidsrc.sh/embed/tv/${activeMedia.id}/${effectiveSeason}/${effectiveEpisode}`;
-      } else if (serverNum === 2) {
-        streamUrl = isMovie 
-          ? `https://vidsrc2.ru/embed/movie/${activeMedia.id}`
-          : `https://vidsrc2.ru/embed/tv/${activeMedia.id}/${effectiveSeason}/${effectiveEpisode}`;
-      } else if (serverNum === 3) {
-        streamUrl = isMovie
-          ? `https://vidsrc.cc/v2/embed/movie/${activeMedia.id}`
-          : `https://vidsrc.cc/v2/embed/tv/${activeMedia.id}/${effectiveSeason}/${effectiveEpisode}`;
-      } else if (serverNum === 4) {
-        streamUrl = isMovie
-          ? `https://vidsrc.xyz/embed/movie?tmdb=${activeMedia.id}`
-          : `https://vidsrc.xyz/embed/tv?tmdb=${activeMedia.id}&season=${effectiveSeason}&episode=${effectiveEpisode}`;
-      } else if (serverNum === 5) {
-        streamUrl = isMovie
-          ? `https://autoembed.cc/embed/movie/${activeMedia.id}`
-          : `https://autoembed.cc/embed/tv/${activeMedia.id}/${effectiveSeason}/${effectiveEpisode}`;
-      }
-
-      trailerFrame.src = streamUrl;
-      loader.classList.add('hidden');
-      trailerFrame.classList.remove('hidden');
-    }
-
-    function switchServer(num) {
-      startStream(num);
-    }
-
-    function updateServerButtons(num) {
-      [1, 2, 3, 4, 5].forEach(n => {
-        const btn = document.getElementById(`srv${n}`);
-        if (btn) {
-          btn.className = (n === num) 
-            ? "wm-btn-primary text-white font-bold px-3.5 py-1 rounded transition cursor-pointer"
-            : "bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-3.5 py-1 rounded transition cursor-pointer";
-        }
-      });
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('detailModal');
-      const trailerFrame = document.getElementById('modalTrailer');
-      
-      modal.classList.add('hidden');
-      trailerFrame.src = '';
-      trailerFrame.classList.add('hidden');
-      
-      document.getElementById('serverBar').classList.add('hidden');
-      document.getElementById('playingEpisodeBanner').classList.add('hidden');
-
-      document.body.style.overflow = 'auto';
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      checkTermsAccepted();
-
-      const acceptBtn = document.getElementById('acceptTermsBtn');
-      if (acceptBtn) {
-        acceptBtn.addEventListener('click', acceptTerms);
-      }
-
-      loadTop10Anime();
-      loadTop10TvShows();
-      loadTop10Movies();
-    });
-  </script>
+    </script>
 </body>
 </html>
