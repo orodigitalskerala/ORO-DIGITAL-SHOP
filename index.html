@@ -898,7 +898,7 @@
 
             <button onclick="confirmBuyNowOrder()" class="w-full bg-neon text-black font-black text-xs py-4 rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(0,255,102,0.4)]">
                 <i class="fa-solid fa-bolt"></i>
-                <span>Proceed to Payment</span>
+                <span id="checkoutButtonText">Proceed to Payment</span>
             </button>
         </div>
     </div>
@@ -921,6 +921,7 @@
                         <div>
                             <h4 id="sidebarUsername" class="text-sm font-bold text-white">New User</h4>
                             <p id="sidebarHandle" class="text-xs text-gray-400">@newuser</p>
+                            <span id="adminBadge" class="hidden mt-1 inline-block bg-neon text-black text-[9px] font-black px-2 py-0.5 rounded-full">ADMIN ACCESS</span>
                         </div>
                     </div>
 
@@ -1058,9 +1059,9 @@
                     <div class="bg-cardBg border border-borderCol rounded-2xl p-6 space-y-4 max-w-md">
                         <div>
                             <label class="block text-xs font-bold text-gray-300 mb-2">Enter Amount (₹)</label>
-                            <input type="number" placeholder="500" class="w-full bg-[#080c0a] border border-borderCol rounded-xl px-4 py-3 text-xs text-white outline-none focus:border-neon">
+                            <input type="number" id="adminDepositInput" placeholder="500" class="w-full bg-[#080c0a] border border-borderCol rounded-xl px-4 py-3 text-xs text-white outline-none focus:border-neon">
                         </div>
-                        <button onclick="showNotification('Fund deposit request submitted!')" class="w-full bg-neon text-black font-bold text-xs py-3 rounded-xl">Proceed to Pay</button>
+                        <button onclick="handleAdminDeposit()" class="w-full bg-neon text-black font-bold text-xs py-3 rounded-xl">Proceed to Pay</button>
                     </div>
                 </div>
 
@@ -1171,7 +1172,6 @@
             updateProfile 
         } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyAoZlk7Sd1fvnXRoFbQKcMdxTzL9fM_S80",
             authDomain: "oro-digital-store-6eb7e.firebaseapp.com",
@@ -1182,15 +1182,15 @@
             measurementId: "G-TZEQVP5KQ3"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
         const googleProvider = new GoogleAuthProvider();
 
         let currentUser = null;
+        const ADMIN_EMAIL = "orodigitalshop@gmail.com";
 
-        // Auth State Listener
+        // Auth State Listener with Admin Check
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 currentUser = user;
@@ -1199,10 +1199,21 @@
                 document.getElementById('sidebarHandle').textContent = `@${displayName.toLowerCase().replace(/\s+/g, '')}`;
                 document.getElementById('settingsUsername').value = displayName;
                 document.getElementById('settingsEmail').value = user.email;
+
+                // Check Admin Access
+                if (user.email.toLowerCase() === ADMIN_EMAIL) {
+                    document.getElementById('adminBadge').classList.remove('hidden');
+                    document.getElementById('checkoutButtonText').textContent = "Auto-Approve Order (Admin Bypass)";
+                } else {
+                    document.getElementById('adminBadge').classList.add('hidden');
+                    document.getElementById('checkoutButtonText').textContent = "Proceed to Payment";
+                }
             } else {
                 currentUser = null;
                 document.getElementById('sidebarUsername').textContent = "New User";
                 document.getElementById('sidebarHandle').textContent = "@newuser";
+                document.getElementById('adminBadge').classList.add('hidden');
+                document.getElementById('checkoutButtonText').textContent = "Proceed to Payment";
             }
         });
 
@@ -1259,10 +1270,10 @@
         }
 
         window.getCurrentAuthUser = () => currentUser;
+        window.isAdminUser = () => currentUser && currentUser.email.toLowerCase() === ADMIN_EMAIL;
     </script>
 
     <script>
-        // Centralized Product Catalog Details Database
         const productsCatalog = {
             "Instagram Followers Panel": {
                 price: 50,
@@ -1322,6 +1333,7 @@
 
         let cart = [];
         let orders = [];
+        let userBalance = 0;
         let toastTimeout = null;
         let currentProduct = { name: 'Instagram Followers Panel', price: 50, category: 'Instagram Services', icon: 'fa-brands fa-instagram', iconBg: 'from-purple-600 to-pink-600', reviews: '(124 reviews)' };
         let activeBuyNowProduct = { name: 'Instagram Followers Panel', price: 50, icon: 'fa-brands fa-instagram', iconBg: 'from-purple-600 to-pink-600' };
@@ -1487,17 +1499,52 @@
                 return;
             }
 
+            // ADMIN AUTO-APPROVE / BYPASS PAYMENT LOGIC
+            if (window.isAdminUser && window.isAdminUser()) {
+                const newOrder = {
+                    product: `${activeBuyNowProduct.name} (${q}x)`,
+                    amount: `₹${total}`,
+                    status: 'Completed (Admin Free)',
+                    date: new Date().toLocaleDateString()
+                };
+                orders.unshift(newOrder);
+                updateOrdersTable();
+                toggleBuyNowModal();
+                showNotification(`Admin Bypass: ${activeBuyNowProduct.name} unlocked free without payment!`);
+                return;
+            }
+
+            // Normal User Checkout Flow
             const newOrder = {
-                product: activeBuyNowProduct.name,
+                product: `${activeBuyNowProduct.name} (${q}x)`,
                 amount: `₹${total}`,
                 status: 'Completed',
                 date: new Date().toLocaleDateString()
             };
             orders.unshift(newOrder);
             updateOrdersTable();
-
             toggleBuyNowModal();
             showNotification(`Successfully purchased ${q}x ${activeBuyNowProduct.name}!`);
+        }
+
+        function handleAdminDeposit() {
+            const amountInput = document.getElementById('adminDepositInput').value;
+            const amt = parseFloat(amountInput);
+
+            if (isNaN(amt) || amt <= 0) {
+                showNotification('Please enter a valid amount');
+                return;
+            }
+
+            if (window.isAdminUser && window.isAdminUser()) {
+                userBalance += amt;
+                document.getElementById('statBalance').textContent = `₹${userBalance}`;
+                document.getElementById('balanceTabAmount').textContent = `₹${userBalance}`;
+                showNotification(`Admin Deposit: ₹${amt} added automatically without payment!`);
+                document.getElementById('adminDepositInput').value = '';
+            } else {
+                showNotification('Redirecting to secure payment gateway...');
+            }
         }
 
         function updateOrdersTable() {
@@ -1562,6 +1609,34 @@
             }
             updateCartBadge();
             showNotification(`${q}x ${currentProduct.name} added to cart!`);
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+
+            let totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            if (window.isAdminUser && window.isAdminUser()) {
+                cart.forEach(item => {
+                    orders.unshift({
+                        product: `${item.name} (${item.qty}x)`,
+                        amount: `₹${item.price * item.qty}`,
+                        status: 'Completed (Admin Free)',
+                        date: new Date().toLocaleDateString()
+                    });
+                });
+                cart = [];
+                updateCartBadge();
+                renderCart();
+                updateOrdersTable();
+                toggleCartModal();
+                showNotification('Admin Bypass: Cart checked out successfully without payment!');
+            } else {
+                showNotification(`Redirecting to payment gateway for ₹${totalAmount}...`);
+            }
         }
 
         function showNotification(message) {
@@ -1660,75 +1735,15 @@
                     <div class="bg-[#050807] border border-borderCol rounded-2xl p-4 flex items-center justify-between">
                         <div>
                             <h4 class="text-xs font-bold text-white">${item.name}</h4>
-                            <p class="text-[10px] text-gray-400 mt-0.5">₹${item.price} × ${item.qty}</p>
+                            <p class="text-[10px] text-gray-400 mt-0.5">₹${item.price} × ${item.qty} = ₹${itemTotal}</p>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <span class="text-xs font-black text-neon">₹${itemTotal}</span>
-                            <button onclick="removeFromCart('${item.name}')" class="text-red-400 hover:text-red-500 text-xs"><i class="fa-solid fa-trash"></i></button>
-                        </div>
+                        <button onclick="removeFromCart('${item.name}')" class="text-red-400 hover:text-red-300 text-xs">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>`;
             });
             listContainer.innerHTML = html;
             totalContainer.textContent = `₹${total}`;
-        }
-
-        function checkout() {
-            if (cart.length === 0) {
-                showNotification('Your cart is empty!');
-                return;
-            }
-            let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            cart.forEach(item => {
-                orders.unshift({
-                    product: `${item.qty}x ${item.name}`,
-                    amount: `₹${item.price * item.qty}`,
-                    status: 'Completed',
-                    date: new Date().toLocaleDateString()
-                });
-            });
-            cart = [];
-            updateCartBadge();
-            updateOrdersTable();
-            toggleCartModal();
-            showNotification(`Checkout successful! Total paid: ₹${total}`);
-        }
-
-        function filterCategory(categoryName) {
-            switchView('shop');
-            const buttons = ['All', 'Instagram', 'Social Media', 'Gaming', 'Custom'];
-            buttons.forEach(b => {
-                const btn = document.getElementById(`cat-btn-${b}`);
-                if (btn) {
-                    if (b === categoryName) {
-                        btn.className = "w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-bold bg-neon/10 text-neon border border-neon/30 transition-all";
-                    } else {
-                        btn.className = "w-full flex items-center space-x-3 px-3 py-3 rounded-xl text-xs font-medium text-gray-300 hover:text-neon hover:bg-[#050807] transition-all";
-                    }
-                }
-            });
-
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (categoryName === 'All' || cardCat === categoryName) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function handleSearch(e) {
-            const term = e.target.value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                if (name.includes(term)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
         }
     </script>
 </body>
